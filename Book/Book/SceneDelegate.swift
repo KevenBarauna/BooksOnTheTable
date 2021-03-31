@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  BookOnTheTable
+//  Book
 //
 //  Created by administrator on 3/30/21.
 //
