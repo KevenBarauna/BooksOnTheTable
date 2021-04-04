@@ -64,6 +64,9 @@
                                                 <state key="normal" title="Esqueceu a senha ?">
                                                     <color key="titleColor" red="1" green="0.56470588239999997" blue="0.31764705879999999" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="esqueceuSenha" destination="BYZ-38-t0r" eventType="touchUpInside" id="pgS-On-C7P"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XPh-fw-Rv3" userLabel="View btn entrar">
                                                 <rect key="frame" x="82" y="597" width="250" height="48"/>
@@ -76,8 +79,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="entrar" destination="BYZ-38-t0r" eventType="touchUpInside" id="HxI-nd-FSv"/>
-                                                            <action selector="entrar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uUt-3I-3aj"/>
+                                                            <action selector="entrar" destination="BYZ-38-t0r" eventType="touchUpInside" id="1S0-zG-vac"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -101,6 +103,9 @@
                                                         <state key="normal" title="Registre-se">
                                                             <color key="titleColor" red="1" green="0.56470588239999997" blue="0.31764705879999999" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="registrar" destination="BYZ-38-t0r" eventType="touchUpInside" id="y5Y-Iv-4vZ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -173,10 +178,6 @@
                                                         <state key="normal" title="REGISTRAR">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
-                                                        <connections>
-                                                            <action selector="entrar" destination="BYZ-38-t0r" eventType="touchUpInside" id="hew-Ep-7yJ"/>
-                                                            <action selector="entrar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DZ1-5B-PMY"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="0.56470588239999997" blue="0.31764705879999999" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
