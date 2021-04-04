@@ -2,6 +2,7 @@ import UIKit
 
 class RegistroViewController: UIViewController {
     
+    //MARK: - IBOutlet
     
     @IBOutlet weak var viewHeader: UIView?
     @IBOutlet weak var nomeTxt: UITextField?
@@ -14,13 +15,16 @@ class RegistroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addStyle();
-
-        // Do any additional setup after loading the view.
     }
     
+    //MARK: - ABAction
 
     @IBAction func registrar() {
+        //TO DO
+        print("Registrar")
     }
+    
+    //MARK: - Func
     
     func addStyle(){
         Styles().addStyleTextField(campoTextField: nomeTxt)

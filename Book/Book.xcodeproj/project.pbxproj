@@ -26,6 +26,7 @@
 		C3D1BEEB2616520900D32555 /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BEEA2616520900D32555 /* Alerta.swift */; };
 		C3D1BEF3261926C900D32555 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BEF2261926C900D32555 /* Styles.swift */; };
 		C3D1BF002619402500D32555 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BEFF2619402500D32555 /* RegistroViewController.swift */; };
+		C3D1BF052619497200D32555 /* DetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF042619497200D32555 /* DetalheViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		C3D1BEEA2616520900D32555 /* Alerta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
 		C3D1BEF2261926C900D32555 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		C3D1BEFF2619402500D32555 /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
+		C3D1BF042619497200D32555 /* DetalheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalheViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 			children = (
 				C38AC5AA2614EB9A00F0B230 /* LoginViewController.swift */,
 				C3D1BEFF2619402500D32555 /* RegistroViewController.swift */,
+				C3D1BF042619497200D32555 /* DetalheViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				C3D1BEEB2616520900D32555 /* Alerta.swift in Sources */,
 				C38AC54C2613FD9D00F0B230 /* Book.xcdatamodeld in Sources */,
 				C3D1BEF3261926C900D32555 /* Styles.swift in Sources */,
+				C3D1BF052619497200D32555 /* DetalheViewController.swift in Sources */,
 				C3D1BF002619402500D32555 /* RegistroViewController.swift in Sources */,
 				C38AC5422613FD9D00F0B230 /* AppDelegate.swift in Sources */,
 				C38AC5442613FD9D00F0B230 /* SceneDelegate.swift in Sources */,
