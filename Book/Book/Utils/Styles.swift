@@ -10,16 +10,20 @@ class Styles{
         viewButton?.layer.cornerRadius = 25
     }
     
-    func addStyleTextField(campoTextField: UITextField?, nomeImagem: String){
-        
-        let image = UIImageView();
-        image.image = UIImage(named: nomeImagem);
+    func addStyleTextField(campoTextField: UITextField?, nomeImagem: String = ""){
         
         campoTextField?.layer.cornerRadius = 20
         campoTextField?.layer.borderWidth = 1
         campoTextField?.layer.borderColor = UIColor.systemGray5.cgColor
-        campoTextField?.leftView = image;
-        campoTextField?.leftViewMode = UITextField.ViewMode.always
+        
+        if(nomeImagem != ""){
+            let image = UIImageView();
+            image.image = UIImage(named: nomeImagem);
+            campoTextField?.leftView = image;
+            campoTextField?.leftViewMode = UITextField.ViewMode.always
+            
+        }
+
 
     }
 }
