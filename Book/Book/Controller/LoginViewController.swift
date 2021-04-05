@@ -40,6 +40,7 @@ class LoginViewController: UIViewController {
         guard let usuarioSenha = senhaTxt?.text else {return}
         //PRINT
         print("Email: \(usuarioEmail), Senha: \(usuarioSenha)")
+        LoginService().login(email: usuarioEmail, senhaHash: usuarioSenha)
     }
     
     
