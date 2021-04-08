@@ -2,7 +2,7 @@ import  Foundation
 
 struct Usuario {
     
-    let id: String;
+    let id: String?;
     let nome: String;
     let email: String;
     let senha: String;

@@ -34,16 +34,18 @@ class HttpService{
     }
     
     
-    func post(url: String, parametros: String, type: AnyClass) -> Data? {
-
+    func post(url: String, body:Data) -> Data? {
+        print("--- \(body)")
         var resposta: Data?;
-        let url = URL(string: url);
+        let url = URL(string: "\(apiRota)\(url)");
         guard let requestUrl = url else { fatalError() }
         var request = URLRequest(url: requestUrl)
         request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
          
-        let postString = parametros;
-        request.httpBody = postString.data(using: String.Encoding.utf8);
+        let postString = body;
+        request.httpBody = body//postString.data(using: String.Encoding.utf8);
+        print("2--- \(request.httpBody)")
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 
             if let error = error {
