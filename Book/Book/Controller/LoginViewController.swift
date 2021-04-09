@@ -2,7 +2,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-        // MARK - IBOutlet
+    // MARK - IBOutlet
         
         @IBOutlet weak var usuarioTxt: UITextField?
         @IBOutlet weak var senhaTxt: UITextField?
@@ -10,8 +10,10 @@ class LoginViewController: UIViewController {
         @IBOutlet weak var viewBtnEntrar: UIView?
         @IBOutlet weak var viewScroll: UIScrollView?
     
-        // MARK - VARIAVEIS
+    // MARK - VARIAVEIS
         var tecladoIsOpen: Bool = false;
+    
+    // MARK: - FUNC PADRAO
     
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -27,34 +29,27 @@ class LoginViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction func entrar() {
-        //VALIDAÇÕES
-        if(usuarioTxt?.text?.isEmpty == true) {
-            AlertaUtil().showMensagem(titulo: "Erro", mensagem: "Informa o Email", view: self)
-            return
-        }
-        else if(senhaTxt?.text?.isEmpty == true) {
-            AlertaUtil().showMensagem(titulo: "Erro", mensagem: "Informa a senha", view: self)
-            return
-        }
-        guard let usuarioEmail = usuarioTxt?.text else {return}
-        guard let usuarioSenha = senhaTxt?.text else {return}
-        //PRINT
+        let valido = self.valicadao(usuario: usuarioTxt, senha: senhaTxt);
+        if(valido){
+            guard let usuarioEmail = usuarioTxt?.text else {return}
+            guard let usuarioSenha = senhaTxt?.text else {return}
 
-        let sucesso = LoginService().login(email: usuarioEmail, senha: usuarioSenha);
-        
-        if(sucesso){
-            let TelaHome = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
-            self.navigationController?.pushViewController(TelaHome ?? self, animated: true)
+            let sucesso = LoginService().login(email: usuarioEmail, senha: usuarioSenha);
             
+            if(sucesso){
+                let TelaHome = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idHome) as? HomeViewController
+                
+                self.navigationController?.pushViewController(TelaHome ?? self, animated: true)
+                self.dismiss(animated: true, completion: nil)
+            }
+
         }
-        
     }
     
     
     @IBAction func esqueceuSenha() {
         //TO DO
-        print("IR PARA TELA DE ESQUECEU SENHA")
-        AlertaUtil().showMensagem(titulo: "Ops" , mensagem: "FALTA FAZER", view: self)
+        AlertaUtil().showMensagem(titulo: msgOps , mensagem: msgDesenvolvimento, view: self)
     }
     
     @IBAction func registrar() {
@@ -81,11 +76,22 @@ class LoginViewController: UIViewController {
     }
     
     func addStyle(){
-        
-        Styles().addStyleTextField(campoTextField: usuarioTxt, nomeImagem: "usuario.png")
-        Styles().addStyleTextField(campoTextField: senhaTxt, nomeImagem: "senha.png")
-        Styles().addStyleHeader(view: viewHeader);
-        Styles().addStyleButton(viewButton: viewBtnEntrar);
-
+        let style = Styles();
+        style.addStyleTextField(campoTextField: usuarioTxt, nomeImagem: "usuario.png")
+        style.addStyleTextField(campoTextField: senhaTxt, nomeImagem: "senha.png")
+        style.addStyleHeader(view: viewHeader);
+        style.addStyleButton(viewButton: viewBtnEntrar);
+    }
+    
+    func valicadao(usuario: UITextField?, senha: UITextField?) -> Bool {
+        if(usuario?.text?.isEmpty == true) {
+            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgInformeEmail, view: self)
+            return false
+        }
+        else if(senha?.text?.isEmpty == true) {
+            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgInformeSenha, view: self)
+            return false
+        }
+        return true;
     }
 }

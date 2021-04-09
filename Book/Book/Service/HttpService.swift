@@ -1,38 +1,36 @@
+// -- RESPONSAVEL POR ACESSAR A API --\\
+
 import UIKit
 
 class HttpService{
+    
+    //MARK: - GET
     
     func get(url: String, paramtros: String = "") -> Data? {
         
         var resposta: Data?;
         let url = URL(string: "\(apiRota)\(url)");
         guard let requestUrl = url else { fatalError() }
-        print("#### Url \(requestUrl)");
         let request = URLRequest(url: requestUrl );
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
 
-            
         if let error = error {
-                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-                print("Error Http Serive: \(error)")
-                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+            self.printErro(error)
             return
-            }
+        }
      
-            // Convert HTTP Response Data to a String
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                print("##############################")
-                print("Response data string:\n \(dataString)")
-                print("##############################")
-                resposta = data
+        if let data = data, let dataString = String(data: data, encoding: .utf8) {
+            self.printSucesso(dataString)
+            resposta = data
                 
-            }
+        }
     }
         task.resume();
         return resposta
     }
     
+    //MARK: - POST
     
     func post(url: String, body:Data) -> Data? {
         var resposta: Data?;
@@ -46,22 +44,30 @@ class HttpService{
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 
             if let error = error {
-                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-                print("Error Http Serive: \(error)")
-                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                self.printErro(error);
                 return ;
             }
          
 
-                if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                    print("##############################")
-                    print("Response data string:\n \(dataString)")
-                    print("##############################")
-                    resposta = data;
+           if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                self.printSucesso(dataString)
+                resposta = data;
                     
-                }
+           }
         }
         task.resume()
         return resposta;
     }
+    
+    //MARK: - PRINT
+    
+    private func printErro(_ error: Error){
+        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        print("Error Http Serive: \(error)")
+        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    }
+    private func printSucesso(_ sucesso: String){
+        print("##############################")
+        print("Response data string: \(sucesso)")
+        print("##############################")    }
 }

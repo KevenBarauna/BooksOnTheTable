@@ -1,3 +1,5 @@
+// -- FUNC GENERICA PARA PERSONALIZAR COMPONENTES UIVIEW --\\
+
 import UIKit
 
 class Styles{

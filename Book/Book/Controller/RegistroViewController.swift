@@ -31,40 +31,27 @@ class RegistroViewController: UIViewController {
     //MARK: - ABAction
 
     @IBAction func registrar() {
-        //VALIDAÇÕES
-        if(nomeTxt?.text?.isEmpty == true) {
-            AlertaUtil().showMensagem(titulo: "Erro", mensagem: "Informe o nome", view: self)
-            return
-        }
-        if(emailTxt?.text?.isEmpty == true) {
-            AlertaUtil().showMensagem(titulo: "Erro", mensagem: "Informe o email", view: self)
-            return
-        }
-        if(senhaTxt?.text?.isEmpty == true) {
-            AlertaUtil().showMensagem(titulo: "Erro", mensagem: "Informe a senha", view: self)
-            return
-        }
-        if(senhaConfirmeTxt?.text?.isEmpty == true) {
-            AlertaUtil().showMensagem(titulo: "Erro", mensagem: "Informe a confirmação de senha", view: self)
-            return
-        }
 
-        if(senhaConfirmeTxt?.text != senhaTxt?.text) {
-            AlertaUtil().showMensagem(titulo: "Erro", mensagem: "As senhas estão diferentes", view: self)
-            return
+        let valido = self.validacao(nome: nomeTxt, email: emailTxt, senha: senhaTxt, confSenha: senhaConfirmeTxt);
+        
+        if(valido){
+            guard
+                let nomeUsuario = nomeTxt?.text,
+                let emailUsuario = emailTxt?.text,
+                let senhaUsuario = senhaTxt?.text
+            else { return }
+            
+            let usuario = Usuario(id: nil, nome: nomeUsuario, email: emailUsuario, senha: senhaUsuario);
+            
+            let sucesso = LoginService().registrar(usuario: usuario);
+            if(sucesso){
+                AlertaUtil().showMensagem(titulo: msgSucesso, mensagem: msgUsuarioCriadoSucesso, view: self);
+                let TelaHome = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idLogin) as? HomeViewController
+                self.navigationController?.pushViewController(TelaHome ?? self, animated: true)
+                self.dismiss(animated: true, completion: nil)
+                
+            }
         }
-        
-        guard
-            let nomeUsuario = nomeTxt?.text,
-            let emailUsuario = emailTxt?.text,
-            let senhaUsuario = senhaTxt?.text
-        else { return }
-        
-        let usuario = Usuario(id: nil, nome: nomeUsuario, email: emailUsuario, senha: senhaUsuario);
-
-        print("Nome: \(nomeUsuario),Email: \(emailUsuario), Senha: \(senhaUsuario)")
-        
-        LoginService().registrar(usuario: usuario)
     }
     
     
@@ -96,5 +83,29 @@ class RegistroViewController: UIViewController {
         Styles().addStyleHeader(view: viewHeader);
         Styles().addStyleButton(viewButton: viewBtnRegistrar);
         Styles().addStyleButton(viewButton: viewBtnVoltar)
+    }
+    
+    func validacao(nome: UITextField?, email: UITextField?, senha: UITextField?, confSenha: UITextField?) -> Bool{
+        if(nome?.text?.isEmpty == true) {
+            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgInformeNome, view: self)
+            return false
+        }
+        else if(email?.text?.isEmpty == true) {
+            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgInformeEmail, view: self)
+            return false
+        }
+        else if(senha?.text?.isEmpty == true) {
+            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgInformeSenha, view: self)
+            return false
+        }
+        else if(confSenha?.text?.isEmpty == true) {
+            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgInformeConfSenha, view: self)
+            return false
+        }
+        else if(senhaConfirmeTxt?.text != senhaTxt?.text) {
+            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgSenhasDif, view: self)
+            return false
+        }
+        return true;
     }
 }

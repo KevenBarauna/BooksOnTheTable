@@ -1,3 +1,5 @@
+// -- CLASS RESPONSAVEL PELO ALERT --\\
+
 import UIKit
 
 class AlertaUtil{

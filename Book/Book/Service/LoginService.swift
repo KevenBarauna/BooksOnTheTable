@@ -1,11 +1,10 @@
+// -- RESPONSAVEL POR MONTAR AS REQUISIÇÕES DO USUARIO --\\
+
 import UIKit
 
 class LoginService{
     
     func login(email: String, senha: String) -> Bool{
-        //let retorno = HttpService().get(url: "/books");
-        //print(retorno)
-            
         let body = [
             "email" : email,
             "password" : senha
