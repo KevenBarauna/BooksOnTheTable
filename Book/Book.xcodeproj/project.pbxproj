@@ -32,6 +32,7 @@
 		C3D1BF15261B8A5D00D32555 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF14261B8A5D00D32555 /* HttpService.swift */; };
 		C3D1BF1E261BA31000D32555 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF1D261BA31000D32555 /* Usuario.swift */; };
 		C3D1BF2E261EA1F000D32555 /* ErroAPi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF2D261EA1F000D32555 /* ErroAPi.swift */; };
+		C3D1BF392620D39100D32555 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF382620D39100D32555 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		C3D1BF14261B8A5D00D32555 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
 		C3D1BF1D261BA31000D32555 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		C3D1BF2D261EA1F000D32555 /* ErroAPi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErroAPi.swift; sourceTree = "<group>"; };
+		C3D1BF382620D39100D32555 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				C38AC5AA2614EB9A00F0B230 /* LoginViewController.swift */,
 				C3D1BEFF2619402500D32555 /* RegistroViewController.swift */,
 				C3D1BF042619497200D32555 /* DetalheViewController.swift */,
+				C3D1BF382620D39100D32555 /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				C3D1BEEB2616520900D32555 /* Alerta.swift in Sources */,
 				C38AC54C2613FD9D00F0B230 /* Book.xcdatamodeld in Sources */,
 				C3D1BEF3261926C900D32555 /* Styles.swift in Sources */,
+				C3D1BF392620D39100D32555 /* HomeViewController.swift in Sources */,
 				C3D1BF0B261B6EE200D32555 /* LoginService.swift in Sources */,
 				C3D1BF052619497200D32555 /* DetalheViewController.swift in Sources */,
 				C3D1BF2E261EA1F000D32555 /* ErroAPi.swift in Sources */,
