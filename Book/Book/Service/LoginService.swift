@@ -38,20 +38,25 @@ class LoginService{
                 
                 let json = try JSONSerialization.data(withJSONObject: body, options: [])
                 
+                //PROBLEMA PARA CORRIGIR
+                //A VARIAVEL RETORNO DEVE CONTER O VALOR QUE CHEGA DA API, POREM O PRINT DA LINHA 47 EXIBE ANTES DA VARIAVEL SER ATRIBUIDA
                 let serialQueue = DispatchQueue(label: "serial")
                 serialQueue.async {
                    retorno = HttpService().post(url: "/users", body: json)
                 }
                 print("Retorno: \(retorno)")
-                
-                guard let resposta = retorno else { print("Retorna"); return false }
+                guard let resposta = retorno else { print("Retorna pq não achou nada"); return false}
+                //FIM DO PROBLEMA
+
                                 
-                let resErro = try JSONDecoder().decode(ErroApi.self , from: resposta);
+                let resErro = App().MontarError(dados: resposta);
+                if(resErro != nil){
+                    print("Erro");
+                    return false;
+                }
                 
                 let resUsuario = try JSONDecoder().decode(Usuario.self, from: resposta);
                 
-                print(resErro.error)
-                print(resErro.reason)
                 print(resUsuario.email)
                 print(resUsuario.senha)
                 

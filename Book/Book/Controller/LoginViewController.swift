@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func registrar() {
         
-        let TelaRegistrar = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "RegistroViewController") as? RegistroViewController
+        let TelaRegistrar = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idRegistrar) as? RegistroViewController
         self.navigationController?.pushViewController(TelaRegistrar ?? self, animated: true)
         
     }
