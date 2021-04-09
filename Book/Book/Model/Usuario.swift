@@ -1,7 +1,7 @@
 import  Foundation
 
-struct Usuario {
-    
+struct Usuario: Codable {
+        
     let id: String?;
     let nome: String;
     let email: String;
@@ -9,13 +9,13 @@ struct Usuario {
     
 }
 
-extension Usuario{
-    
-    enum CodingKeys: String, CodingKey{
-        case id
-        case nome = "full_name"
-        case email
-        case password_hash = "senha"
-    }
-    
-}
+//extension Usuario{
+//
+//    enum CodingKeys: String, CodingKey{
+//        case id = "id"
+//        case nome = "full_name"
+//        case email = "email"
+//        case password_hash = "senha"
+//    }
+//
+//}

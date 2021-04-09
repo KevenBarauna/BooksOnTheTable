@@ -148,10 +148,10 @@
             </objects>
             <point key="canvasLocation" x="76.811594202898561" y="120.53571428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="uVF-2t-K7c">
             <objects>
-                <viewController id="j2c-sJ-Y36" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="j2c-sJ-Y36" customClass="HomeViewController" customModule="Book" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0EV-ft-pN0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

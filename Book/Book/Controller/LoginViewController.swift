@@ -32,22 +32,29 @@ class LoginViewController: UIViewController {
             AlertaUtil().showMensagem(titulo: "Erro", mensagem: "Informa o Email", view: self)
             return
         }
-        if(senhaTxt?.text?.isEmpty == true) {
+        else if(senhaTxt?.text?.isEmpty == true) {
             AlertaUtil().showMensagem(titulo: "Erro", mensagem: "Informa a senha", view: self)
             return
         }
         guard let usuarioEmail = usuarioTxt?.text else {return}
         guard let usuarioSenha = senhaTxt?.text else {return}
         //PRINT
-        print("Email: \(usuarioEmail), Senha: \(usuarioSenha)")
-        LoginService().login(email: usuarioEmail, senhaHash: usuarioSenha)
+
+        let sucesso = LoginService().login(email: usuarioEmail, senha: usuarioSenha);
+        
+        if(sucesso){
+            let TelaHome = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
+            self.navigationController?.pushViewController(TelaHome ?? self, animated: true)
+            
+        }
+        
     }
     
     
     @IBAction func esqueceuSenha() {
         //TO DO
         print("IR PARA TELA DE ESQUECEU SENHA")
-        AlertaUtil().showMensagem(titulo: "TO DO" , mensagem: "FALTA FAZER", view: self)
+        AlertaUtil().showMensagem(titulo: "Ops" , mensagem: "FALTA FAZER", view: self)
     }
     
     @IBAction func registrar() {
