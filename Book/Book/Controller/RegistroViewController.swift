@@ -12,6 +12,7 @@ class RegistroViewController: UIViewController {
     @IBOutlet weak var btnRegistrar: UIButton?
     @IBOutlet weak var viewBtnRegistrar: UIView?
     @IBOutlet weak var viewScroll: UIScrollView?
+    @IBOutlet weak var viewBtnVoltar: UIView?
     
     // MARK - VARIAVEIS
     var tecladoIsOpen: Bool = false;
@@ -66,6 +67,11 @@ class RegistroViewController: UIViewController {
         LoginService().registrar(usuario: usuario)
     }
     
+    
+    @IBAction func voltar() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     //MARK: - Func
         
     @objc func subirTeclado(){
@@ -89,5 +95,6 @@ class RegistroViewController: UIViewController {
         Styles().addStyleTextField(campoTextField: senhaConfirmeTxt)
         Styles().addStyleHeader(view: viewHeader);
         Styles().addStyleButton(viewButton: viewBtnRegistrar);
+        Styles().addStyleButton(viewButton: viewBtnVoltar)
     }
 }

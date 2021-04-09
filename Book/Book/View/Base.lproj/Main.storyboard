@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sDa-tN-IcJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mda-Su-4Xc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -8,6 +8,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="9rP-xB-HZe">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="mda-Su-4Xc" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iOm-aO-mwU">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bVH-uZ-jbG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zfc-no-U4M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-894" y="121"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -25,7 +41,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cty-cQ-7Oe">
-                                                <rect key="frame" x="0.0" y="-15" width="414" height="260"/>
+                                                <rect key="frame" x="0.0" y="-63" width="414" height="308"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Book On The Table" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gei-Cy-hdF">
@@ -119,6 +135,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="txa-FA-xlw"/>
                     <connections>
                         <outlet property="senhaTxt" destination="GKH-Ao-DEs" id="qR5-N3-Dac"/>
                         <outlet property="usuarioTxt" destination="QeU-QD-lDq" id="JBC-4g-wFK"/>
@@ -129,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="121"/>
+            <point key="canvasLocation" x="76.811594202898561" y="120.53571428571428"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="uVF-2t-K7c">
@@ -203,7 +220,7 @@
         <!--Registro View Controller-->
         <scene sceneID="Ood-f8-xcb">
             <objects>
-                <viewController id="sDa-tN-IcJ" customClass="RegistroViewController" customModule="Book" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="RegistroViewController" storyboardIdentifier="RegistroViewController" id="sDa-tN-IcJ" customClass="RegistroViewController" customModule="Book" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rUO-IA-MRI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -262,7 +279,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8G-Lz-Vd4" userLabel="View btn entrar">
-                                                <rect key="frame" x="82" y="743" width="250" height="48"/>
+                                                <rect key="frame" x="82" y="680" width="250" height="48"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXv-xZ-Z9Z">
@@ -273,6 +290,23 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="registrar" destination="sDa-tN-IcJ" eventType="touchUpInside" id="GpO-cb-k2u"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.56470588239999997" blue="0.31764705879999999" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4dL-dI-DMd" userLabel="View btn voltar">
+                                                <rect key="frame" x="82" y="769" width="250" height="48"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JnO-Tk-UZl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="250" height="48"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="VOLTAR">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="voltar" destination="sDa-tN-IcJ" eventType="touchUpInside" id="VRG-tb-e8l"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -294,6 +328,7 @@
                         <outlet property="senhaConfirmeTxt" destination="v6t-0d-CVi" id="rWF-mQ-nz4"/>
                         <outlet property="senhaTxt" destination="Hd1-8h-kT9" id="TnF-T0-sZn"/>
                         <outlet property="viewBtnRegistrar" destination="d8G-Lz-Vd4" id="5yJ-Zt-MHF"/>
+                        <outlet property="viewBtnVoltar" destination="4dL-dI-DMd" id="En6-1U-0tG"/>
                         <outlet property="viewHeader" destination="JGy-UK-oeh" id="dz4-bQ-KXl"/>
                         <outlet property="viewScroll" destination="YZg-UC-Fjv" id="Es3-cs-pHW"/>
                     </connections>

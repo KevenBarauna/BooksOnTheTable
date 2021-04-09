@@ -51,9 +51,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registrar() {
-        //TO DO
-        print("IR PARA TELA DE RESGISTRAR-SE")
-        AlertaUtil().showMensagem(titulo: "TO DO" , mensagem: "FALTA FAZER", view: self)
+        
+        let TelaRegistrar = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "RegistroViewController") as? RegistroViewController
+        self.navigationController?.pushViewController(TelaRegistrar ?? self, animated: true)
         
     }
     
