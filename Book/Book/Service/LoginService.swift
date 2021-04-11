@@ -20,72 +20,36 @@ class LoginService{
             return false
         }
         
-        
-        
     }
     
-    func registrar(usuario: Usuario) -> Bool {
-        
-        var retorno: Data?
+    func registrar(usuario: Usuario, view: UIViewController){
        
-            let body = [
-                "name" : usuario.nome,
-                "email" : usuario.email,
-                "password" : usuario.senha
-            ];
-            do{
-                
-                let json = try JSONSerialization.data(withJSONObject: body, options: [])
-                
-
-                HttpService().post(url: "/users", body: json)
-                
-//                var tentativaMax = 3000;
-//                var tentativa = 0
-//
-//                while tentativa < tentativaMax {
-//                   print( "Tentativa: \(tentativa) - retorno: \(retorno)")
-//                    if(retorno != nil){
-//                        print("Achou \(retorno)")
-//                        tentativa = tentativaMax;
-//                    }
-//                   tentativa = tentativa + 1
-//                }
-                
-                
-                
-                //print("Retorno: \(retorno)")
-                guard let resposta = retorno else { print("Retorna pq não achou nada"); return false}
-                //FIM DO PROBLEMA
-
-                                
-                let resErro = App().MontarError(dados: resposta);
-                if(resErro != nil){
-                    print("Erro");
-                    return false;
-                }
-                
-                let resUsuario = try JSONDecoder().decode(Usuario.self, from: resposta);
-                
-                print(resUsuario.email)
-                print(resUsuario.senha)
-                
-            } catch {
-                print(error.localizedDescription)
-            }
-        return true
+        let body = [
+            "name" : usuario.nome,
+            "email" : usuario.email,
+            "password" : usuario.senha
+        ];
         
-    }
-    
-    func verificaValor(valor: Data?){
-        var tentativaMax = 30;
-        var tentativa = 0
-
-        while tentativa < tentativaMax {
-           print( "Value of index is \(index)")
-           tentativa = tentativa + 1
+        HttpService().post(body, "/users") { (add, data) in
+            if add {
+                let isErro = App().MontarError(dados: data as? [String : Any]);
+                
+                
+                if(isErro?.error == true){
+                    guard let mensagem = isErro?.reason else {return}
+                    AlertaUtil().showMensagem(titulo: msgErro, mensagem: "\(mensagem)", view: view)
+                }else{
+                  AlertaUtil().showMensagem(titulo: msgSucesso, mensagem: msgUsuarioCriadoSucesso, view: view);
+                   let TelaHome = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idLogin) as? HomeViewController
+                   view.navigationController?.pushViewController(TelaHome ?? view, animated: true)
+                   view.dismiss(animated: true, completion: nil)
+                }
+       
+            } else {
+                print("Erro no registrar - LoginService - \(data)")
+            }
         }
+
     }
-    
 
 }

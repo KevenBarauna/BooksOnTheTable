@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,6 +37,7 @@
 		C3D1BF2E261EA1F000D32555 /* ErroAPi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF2D261EA1F000D32555 /* ErroAPi.swift */; };
 		C3D1BF392620D39100D32555 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF382620D39100D32555 /* HomeViewController.swift */; };
 		C3D1BF472621160D00D32555 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF462621160D00D32555 /* App.swift */; };
+		C3D1BF5B2623ADD100D32555 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF5A2623ADD100D32555 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		C3D1BF2D261EA1F000D32555 /* ErroAPi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErroAPi.swift; sourceTree = "<group>"; };
 		C3D1BF382620D39100D32555 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C3D1BF462621160D00D32555 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		C3D1BF5A2623ADD100D32555 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		CB8890150770BC00E34A25FC /* Pods_BookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E653EA0582B0AFD6600AF475 /* Pods_Book_BookUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Book_BookUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -139,7 +141,6 @@
 				2B45DC3B3F97B7BA5A8649A1 /* Pods-BookTests.debug.xcconfig */,
 				88A7EE1B6B4A175629F2408A /* Pods-BookTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -252,6 +253,7 @@
 				C3D1BEF2261926C900D32555 /* Styles.swift */,
 				C3D1BF0F261B6FE900D32555 /* Contants.swift */,
 				C3D1BF462621160D00D32555 /* App.swift */,
+				C3D1BF5A2623ADD100D32555 /* Data.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -534,6 +536,7 @@
 				C3D1BF10261B6FE900D32555 /* Contants.swift in Sources */,
 				C38AC5422613FD9D00F0B230 /* AppDelegate.swift in Sources */,
 				C38AC5442613FD9D00F0B230 /* SceneDelegate.swift in Sources */,
+				C3D1BF5B2623ADD100D32555 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

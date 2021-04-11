@@ -8,6 +8,34 @@ class HttpService{
     
     // MARK - POST2
     
+    func post(_ params:Dictionary<String, Any>, _ url: String ,completion:@escaping(_ add:Bool, _ data:Any) -> Void){
+        guard let url = URL(string: apiRota + url) else {return}
+        
+        Alamofire.request(url, method: .post, parameters: params,encoding: JSONEncoding.default).responseJSON {
+            resData in
+            switch resData.result{
+            case .success:
+               
+               
+                do{
+                    let json = try JSONSerialization.jsonObject(with: resData.data!, options: []) as? [String : Any]
+                    completion(true, json)
+                    break
+                    
+                }catch{
+                    print("erroMsg")
+                }
+                
+//                let jsonString = String(data: resData.data ?? "tryyyy", encoding: .utf8);
+                //completion(true, json)
+               // break
+            case .failure( _):
+                completion(false, "User Not Found")
+                break
+            }
+        }
+    }
+    
     func addUserService(_ params:Dictionary<String, Any>, completion:@escaping(_ add:Bool, _ data:Any) -> Void){
         guard let url = URL(string: apiRota + "/users") else {return}
         print(url)
@@ -27,6 +55,7 @@ class HttpService{
             }
         }
     }
+    
     
     //MARK: - GET
     

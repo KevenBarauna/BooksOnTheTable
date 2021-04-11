@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     
         override func viewDidLoad() {
             super.viewDidLoad()
-            addStyle();
+            addStyle();                       
 
             // SE TECLADO SUBIR
             NotificationCenter.default.addObserver(self, selector: #selector(subirTeclado), name: UIResponder.keyboardWillShowNotification, object: nil)

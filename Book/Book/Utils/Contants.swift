@@ -9,7 +9,6 @@ let idLogin = "LoginViewController";
 let idRegistrar = "RegistroViewController";
 let idHome = "HomeViewController";
 
-
 // MENSAGEM
 let msgOps = "Ops...";
 let msgErro = "Erro";
