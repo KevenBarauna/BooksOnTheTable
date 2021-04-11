@@ -45,13 +45,6 @@ class RegistroViewController: UIViewController {
             
             LoginService().registrar(usuario: usuario, view: self);
 
-//            if(sucesso){
-//                AlertaUtil().showMensagem(titulo: msgSucesso, mensagem: msgUsuarioCriadoSucesso, view: self);
-//                let TelaHome = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idLogin) as? HomeViewController
-//                self.navigationController?.pushViewController(TelaHome ?? self, animated: true)
-//                self.dismiss(animated: true, completion: nil)
-//
-//            }
         }
     }
     

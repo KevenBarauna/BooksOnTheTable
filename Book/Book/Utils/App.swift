@@ -23,6 +23,7 @@ class App {
     }
     
     func montarUsuario(dados: [String:Any]?) -> Usuario?{
+        //
         guard let nome = dados?["name"] else {
             print("Erro converter nome **")
             return nil
@@ -43,4 +44,28 @@ class App {
 
     }
     
+    func montarUsuarioToken(dados: [String:Any]?) -> String?{
+        //{"token":"E8D3B322-5001-4DCC-874B-B1FFEDCE0C60","createdAt":"2021-04-04T14:16:09Z","expiresAt":"2021-04-05T14:16:09Z"}
+        guard let token = dados?["token"] else {
+            print("Erro converter nome **")
+            return nil
+        }
+        guard let criacao = dados?["createdAt"] else {
+            print("Erro converter email **")
+            return nil
+        }
+        guard let validade = dados?["expiresAt"] else {
+            print("Erro converter email **")
+            return nil
+        }
+        
+        print("Criação \(criacao) - validade: \(validade) - token: \(token)")
+        
+        guard let tokenStr = token as? String else {
+            return nil
+        }
+               
+       return tokenStr
+
+    }
 }

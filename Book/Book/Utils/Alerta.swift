@@ -11,5 +11,11 @@ class AlertaUtil{
         alerta.addAction(btnPadrao)
         view.present(alerta, animated: true, completion: funcCompletion)
     }
-
+    
+    func showMensagemActionButton(titulo: String, mensagem: String, view: UIViewController, funcCompletion:@escaping ((UIAlertAction) -> Void)) {
+        let alerta = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert);
+        let btnPadrao = UIAlertAction(title: "Ok", style: .default, handler: funcCompletion)
+        alerta.addAction(btnPadrao)
+        view.present(alerta, animated: true, completion: nil)
+    }
 }
