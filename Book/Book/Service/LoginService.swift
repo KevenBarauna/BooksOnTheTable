@@ -12,9 +12,8 @@ class LoginService{
         
         do{
             let json = try JSONSerialization.data(withJSONObject: body, options: [])
-            let retorno = HttpService().post(url: "/security/token", body: json)
-            print(retorno);
-            return true;
+            HttpService().post(url: "/security/token", body: json)
+             return true;
             
         } catch {
             print(error.localizedDescription);
@@ -38,13 +37,24 @@ class LoginService{
                 
                 let json = try JSONSerialization.data(withJSONObject: body, options: [])
                 
-                //PROBLEMA PARA CORRIGIR
-                //A VARIAVEL RETORNO DEVE CONTER O VALOR QUE CHEGA DA API, POREM O PRINT DA LINHA 47 EXIBE ANTES DA VARIAVEL SER ATRIBUIDA
-                let serialQueue = DispatchQueue(label: "serial")
-                serialQueue.async {
-                   retorno = HttpService().post(url: "/users", body: json)
-                }
-                print("Retorno: \(retorno)")
+
+                HttpService().post(url: "/users", body: json)
+                
+//                var tentativaMax = 3000;
+//                var tentativa = 0
+//
+//                while tentativa < tentativaMax {
+//                   print( "Tentativa: \(tentativa) - retorno: \(retorno)")
+//                    if(retorno != nil){
+//                        print("Achou \(retorno)")
+//                        tentativa = tentativaMax;
+//                    }
+//                   tentativa = tentativa + 1
+//                }
+                
+                
+                
+                //print("Retorno: \(retorno)")
                 guard let resposta = retorno else { print("Retorna pq não achou nada"); return false}
                 //FIM DO PROBLEMA
 
@@ -67,6 +77,15 @@ class LoginService{
         
     }
     
+    func verificaValor(valor: Data?){
+        var tentativaMax = 30;
+        var tentativa = 0
+
+        while tentativa < tentativaMax {
+           print( "Value of index is \(index)")
+           tentativa = tentativa + 1
+        }
+    }
     
 
 }

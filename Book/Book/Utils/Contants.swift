@@ -6,7 +6,7 @@ let apiRota = "http://127.0.0.1:8080"//http://localhost:3000"
 
 //Identifier
 let idLogin = "LoginViewController";
-let idRegistrar = "";
+let idRegistrar = "RegistroViewController";
 let idHome = "HomeViewController";
 
 

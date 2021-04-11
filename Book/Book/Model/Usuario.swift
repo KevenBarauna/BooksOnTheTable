@@ -9,6 +9,15 @@ struct Usuario: Codable {
     
 }
 
+class Login: NSObject {
+
+    struct Users: Codable {
+        var password_hash:String
+        var email:String
+        var user_id:String
+    }
+}
+
 //extension Usuario{
 //
 //    enum CodingKeys: String, CodingKey{
