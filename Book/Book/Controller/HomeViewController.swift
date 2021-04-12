@@ -6,7 +6,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        LivroService().getAll(page: "1", tamMax: "3", view: self)
         // Do any additional setup after loading the view.
         
     }

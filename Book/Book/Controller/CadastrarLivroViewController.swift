@@ -38,7 +38,15 @@ class CadastrarLivroViewController: UIViewController {
     @IBAction func salvar() {
         let valido = self.valicadao(titulo: tituloTxt, autor: autorTxt, genero: txtGenero, status: txtStatus);
         if(valido){
-            //CONTINUAR
+            guard
+                let titulo = tituloTxt?.text,
+                let autor = autorTxt?.text,
+                let genero = txtGenero?.text,
+                let status = txtStatus?.text
+            else { return }
+
+            let livro = Livro(id: nil, titulo: titulo, autor: autor, genero: genero, status: status)
+            LivroService().cadastrar(livro: livro, view: self)
         }
     }
     

@@ -9,3 +9,12 @@ struct Livro: Codable {
     let status: String;
     
 }
+
+struct LivroApi: Codable{
+    
+    let author: String
+    let id: String?
+    let title: String
+    let status: String
+    let genre: String
+}

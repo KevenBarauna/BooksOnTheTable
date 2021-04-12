@@ -58,6 +58,45 @@ class App {
 
     }
     
+    func mountBookList(dados: [String:Any]?) -> String?{
+        print("------------------------------------------")
+
+        guard let itens = dados?["items"] else {
+            print("* Não foi possível converter o itens - mountBookList");
+            return nil
+        }
+
+        let quantidade = (itens as AnyObject).count;
+        let books: [String:Any]
+        
+        //if(quantidade ?? 0 > 0){
+            let converted = dados?.compactMapValues { $0 as? String }
+            print("convertido \(converted)")
+//            for livro in converted{
+//
+//            }
+      //  }
+        
+        do{
+            var str = itens as? String
+            let dataObj: Data? = str?.data(using: .utf8)
+            guard let data = dataObj else {print("nil k");return nil}
+            let livros = try JSONDecoder().decode(LivroApi.self, from: data)
+            
+            print("1 livros \(livros)")
+            
+//            for livro in livros ?? [] {
+//                print("Livro: , \(livro)!")
+//            }
+            
+        }catch{
+            print("* Erro na conversão book")
+            return nil
+        }
+                
+       return nil
+
+    }
     
     //MARK: - PRINT
     
