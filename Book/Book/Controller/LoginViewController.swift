@@ -34,15 +34,8 @@ class LoginViewController: UIViewController {
             guard let usuarioEmail = usuarioTxt?.text else {return}
             guard let usuarioSenha = senhaTxt?.text else {return}
 
-            let sucesso = LoginService().login(email: usuarioEmail, senha: usuarioSenha, view: self);
+        LoginService().login(email: usuarioEmail, senha: usuarioSenha, view: self);
             
-            if(sucesso){
-                let TelaHome = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idHome) as? HomeViewController
-                
-                self.navigationController?.pushViewController(TelaHome ?? self, animated: true)
-                self.dismiss(animated: true, completion: nil)
-            }
-
         }
     }
     

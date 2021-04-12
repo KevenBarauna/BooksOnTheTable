@@ -1,5 +1,5 @@
 //-- TEMP --\\
 
-let token = "";
+let token = "9C9ECA87-22B2-48DA-84A7-67C9FE947F32";
 
 
