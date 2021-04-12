@@ -6,7 +6,7 @@ import Alamofire
 
 class HttpService{
     
-    // MARK - POST2
+    // MARK - POST
     
     func post(_ params:Dictionary<String, Any>, _ url: String ,completion:@escaping(_ add:Bool, _ data:Any) -> Void){
         guard let url = URL(string: apiRota + url) else {return}
@@ -15,47 +15,20 @@ class HttpService{
             resData in
             switch resData.result{
             case .success:
-               
-               
                 do{
                     let json = try JSONSerialization.jsonObject(with: resData.data!, options: []) as? [String : Any]
-                    completion(true, json)
+                    completion(true, json!)
                     break
-                    
                 }catch{
-                    print("erroMsg")
+                    completion(false,"Erro converter Json")
+                    break
                 }
-                
-//                let jsonString = String(data: resData.data ?? "tryyyy", encoding: .utf8);
-                //completion(true, json)
-               // break
             case .failure( _):
-                completion(false, "User Not Found")
+                completion(false, "Falha")
                 break
             }
         }
     }
-    
-    func addUserService(_ params:Dictionary<String, Any>, completion:@escaping(_ add:Bool, _ data:Any) -> Void){
-        guard let url = URL(string: apiRota + "/users") else {return}
-        print(url)
-        
-        Alamofire.request(url, method: .post, parameters: params,encoding: JSONEncoding.default).responseJSON {
-            AFdata in
-            switch AFdata.result{
-            case .success:
-                //let jsonString = Utils().generateJsonString(data: AFdata.data!)
-                let jsonString = String(data: AFdata.data!, encoding: .utf8);
-                //let user = try! JSONDecoder().decode(Login.Users.self, from: jsonString!.data(using: .utf8)!)
-                completion(true, jsonString)
-                break
-            case .failure( _):
-                completion(false, "User Not Found")
-                break
-            }
-        }
-    }
-    
     
     //MARK: - GET
     
@@ -63,41 +36,5 @@ class HttpService{
         
     }
     
-    //MARK: - POST
-    
-    func post(url: String, body:Data)  {
- 
-        let body = [
-            "name" :"2",
-            "email" : "2",
-            "password" : "2"
-        ];
 
-        addUserService(body) { (add, data) in
-            if add {
-                print(data)
-       
-            } else {
-                print("Erroooo")
-            }
-   }
-       
-
-    }
-    
-
-    
-    //MARK: - PRINT
-    
-    private func printErro(_ error: Error){
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        print("Error Http Serive: \(error)")
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    }
-    private func printSucesso(_ sucesso: String){
-        print("##############################")
-        print("Response data string: \(sucesso)")
-        print("##############################")
-        
-    }
 }

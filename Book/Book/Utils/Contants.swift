@@ -14,6 +14,7 @@ let msgOps = "Ops...";
 let msgErro = "Erro";
 let msgSucesso = "Sucesso"
 let msgDesenvolvimento = "Essa funcionalidade está em desenvolvimento";
+let msgErroInesperado = "Um erro inesperado ocorreu :( "
 let msgInformeNome = "Informe o Nome";
 let msgInformeEmail = "Informe o Email";
 let msgInformeSenha = "Informe a Senha";
