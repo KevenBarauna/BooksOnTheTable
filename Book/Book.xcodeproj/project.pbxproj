@@ -38,6 +38,7 @@
 		C3D1BF392620D39100D32555 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF382620D39100D32555 /* HomeViewController.swift */; };
 		C3D1BF472621160D00D32555 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF462621160D00D32555 /* App.swift */; };
 		C3D1BF5B2623ADD100D32555 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF5A2623ADD100D32555 /* Data.swift */; };
+		C3D1BF602624DE8D00D32555 /* CadastrarLivroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF5F2624DE8D00D32555 /* CadastrarLivroViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		C3D1BF382620D39100D32555 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C3D1BF462621160D00D32555 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		C3D1BF5A2623ADD100D32555 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		C3D1BF5F2624DE8D00D32555 /* CadastrarLivroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastrarLivroViewController.swift; sourceTree = "<group>"; };
 		CB8890150770BC00E34A25FC /* Pods_BookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E653EA0582B0AFD6600AF475 /* Pods_Book_BookUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Book_BookUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -234,6 +236,7 @@
 				C3D1BEFF2619402500D32555 /* RegistroViewController.swift */,
 				C3D1BF042619497200D32555 /* DetalheViewController.swift */,
 				C3D1BF382620D39100D32555 /* HomeViewController.swift */,
+				C3D1BF5F2624DE8D00D32555 /* CadastrarLivroViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				C3D1BF0B261B6EE200D32555 /* LoginService.swift in Sources */,
 				C3D1BF052619497200D32555 /* DetalheViewController.swift in Sources */,
 				C3D1BF2E261EA1F000D32555 /* ErroAPi.swift in Sources */,
+				C3D1BF602624DE8D00D32555 /* CadastrarLivroViewController.swift in Sources */,
 				C3D1BF002619402500D32555 /* RegistroViewController.swift in Sources */,
 				C3D1BF1E261BA31000D32555 /* Usuario.swift in Sources */,
 				C3D1BF10261B6FE900D32555 /* Contants.swift in Sources */,
