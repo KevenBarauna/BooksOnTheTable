@@ -39,6 +39,8 @@
 		C3D1BF472621160D00D32555 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF462621160D00D32555 /* App.swift */; };
 		C3D1BF5B2623ADD100D32555 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF5A2623ADD100D32555 /* Data.swift */; };
 		C3D1BF602624DE8D00D32555 /* CadastrarLivroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF5F2624DE8D00D32555 /* CadastrarLivroViewController.swift */; };
+		C3D1BF652624ED0600D32555 /* LivroService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF642624ED0600D32555 /* LivroService.swift */; };
+		C3D1BF6A2624EDE200D32555 /* Livro.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF692624EDE200D32555 /* Livro.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		C3D1BF462621160D00D32555 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		C3D1BF5A2623ADD100D32555 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		C3D1BF5F2624DE8D00D32555 /* CadastrarLivroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastrarLivroViewController.swift; sourceTree = "<group>"; };
+		C3D1BF642624ED0600D32555 /* LivroService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivroService.swift; sourceTree = "<group>"; };
+		C3D1BF692624EDE200D32555 /* Livro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Livro.swift; sourceTree = "<group>"; };
 		CB8890150770BC00E34A25FC /* Pods_BookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E653EA0582B0AFD6600AF475 /* Pods_Book_BookUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Book_BookUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -266,6 +270,7 @@
 			children = (
 				C3D1BF0A261B6EE200D32555 /* LoginService.swift */,
 				C3D1BF14261B8A5D00D32555 /* HttpService.swift */,
+				C3D1BF642624ED0600D32555 /* LivroService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 			children = (
 				C3D1BF1D261BA31000D32555 /* Usuario.swift */,
 				C3D1BF2D261EA1F000D32555 /* ErroAPi.swift */,
+				C3D1BF692624EDE200D32555 /* Livro.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -526,10 +532,12 @@
 			files = (
 				C38AC5AB2614EB9A00F0B230 /* LoginViewController.swift in Sources */,
 				C3D1BF15261B8A5D00D32555 /* HttpService.swift in Sources */,
+				C3D1BF652624ED0600D32555 /* LivroService.swift in Sources */,
 				C3D1BEEB2616520900D32555 /* Alerta.swift in Sources */,
 				C3D1BF472621160D00D32555 /* App.swift in Sources */,
 				C38AC54C2613FD9D00F0B230 /* Book.xcdatamodeld in Sources */,
 				C3D1BEF3261926C900D32555 /* Styles.swift in Sources */,
+				C3D1BF6A2624EDE200D32555 /* Livro.swift in Sources */,
 				C3D1BF392620D39100D32555 /* HomeViewController.swift in Sources */,
 				C3D1BF0B261B6EE200D32555 /* LoginService.swift in Sources */,
 				C3D1BF052619497200D32555 /* DetalheViewController.swift in Sources */,
