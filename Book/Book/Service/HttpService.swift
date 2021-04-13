@@ -8,10 +8,10 @@ class HttpService{
     
     // MARK - POST
     
-    func post(_ params:Dictionary<String, Any>, _ url: String ,completion:@escaping(_ add:Bool, _ data:Any) -> Void){
+    func post(_ params:Dictionary<String, Any>, _ url: String, _ headers: HTTPHeaders ,completion:@escaping(_ add:Bool, _ data:Any) -> Void){
         guard let url = URL(string: apiRota + url) else {return}
         
-        Alamofire.request(url, method: .post, parameters: params,encoding: JSONEncoding.default).responseJSON {
+        Alamofire.request(url, method: .post, parameters: params,encoding: JSONEncoding.default, headers: headers).responseJSON {
             resData in
             switch resData.result{
             case .success:

@@ -1,6 +1,7 @@
 // -- RESPONSAVEL POR MONTAR AS REQUISIÇÕES DO USUARIO --\\
 
 import UIKit
+import Alamofire
 
 class LoginService{
     
@@ -12,7 +13,11 @@ class LoginService{
             "password" : senha
         ];
         
-        HttpService().post(body, "/security/token") { (add, data) in
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json"
+            ]
+        
+        HttpService().post(body, "/security/token", headers) { (add, data) in
             self.handleLogin(add, data, view);
         }
     }
@@ -26,7 +31,11 @@ class LoginService{
             "password" : usuario.senha
         ];
         
-        HttpService().post(body, "/users") { (add, data) in
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json"
+            ]
+        
+        HttpService().post(body, "/users", headers) { (add, data) in
             self.handleRegistrar(add, data, view)
         }
     }

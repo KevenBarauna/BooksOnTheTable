@@ -15,7 +15,12 @@ class LivroService{
             "status" : livro.status
         ];
         
-        HttpService().post(body, "/books") { (add, data) in
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "Authorization": "Bearer \(token)"
+        ]
+        
+        HttpService().post(body, "/books", headers) { (add, data) in
             self.handleCadastrar(add, data, view);
         }
     }
