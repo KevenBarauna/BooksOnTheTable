@@ -7,7 +7,6 @@ class App {
         //VERIFICA SE "DADOS" É UM ErroApi
 
         guard let reason = dados?["reason"] else {
-            print("* Não foi possível converter a reason - montarErro")
             return nil
         }
         
@@ -44,60 +43,74 @@ class App {
     func mountToken(dados: [String:Any]?) -> String?{
         //VERIFICA SE "DADOS" TEM UM TOKEN
         guard let token = dados?["token"] else {
-            print("* Não foi possível converter o token - montarToken");
+            debugPrint("* Não foi possível converter o token - montarToken");
             return nil
         }
         
         guard let tokenStr = token as? String else {
             return nil
         }
-               
-        self.printSucesso(tokenStr)
-        
+                       
        return tokenStr
 
     }
     
-    func mountBookList(dados: [String:Any]?) -> String?{
+    func mountBookList(dados: [String:Any]?) -> [Livro]?{
+        //VERIFICA SE TEM LISTA DE LIVRO
         print("------------------------------------------")
 
         guard let itens = dados?["items"] else {
             print("* Não foi possível converter o itens - mountBookList");
             return nil
         }
-
-        let quantidade = (itens as AnyObject).count;
-        let books: [String:Any]
-        
-        //if(quantidade ?? 0 > 0){
-            let converted = dados?.compactMapValues { $0 as? String }
-            print("convertido \(converted)")
-//            for livro in converted{
-//
-//            }
-      //  }
         
         do{
-            var str = itens as? String
-            let dataObj: Data? = str?.data(using: .utf8)
-            guard let data = dataObj else {print("nil k");return nil}
-            let livros = try JSONDecoder().decode(LivroApi.self, from: data)
             
-            print("1 livros \(livros)")
+            var books: [Livro]?
             
-//            for livro in livros ?? [] {
-//                print("Livro: , \(livro)!")
-//            }
-            
+            if let rows = itens as? [[String: String]] {
+                
+                for r in rows{
+                   
+                    guard
+                        let id = r["id"],
+                        let titulo = r["title"],
+                        let autor = r["author"],
+                        let genero = r["genre"],
+                        let status = r["status"]
+                    else { return nil }
+
+                    let liv = Livro(id: id, titulo: titulo, autor: autor, genero: genero, status: status)
+                    books?.append(liv);
+                }
+            }
+            return books
+                        
         }catch{
-            print("* Erro na conversão book")
+            print("* Erro na conversão book - \(LocalizedError.self)")
             return nil
         }
                 
-       return nil
-
     }
     
+//    func testeF(){
+//        fetchData { (dict, error) in
+//            if let rows = dict?["rows"] as? [[String: Any]] {
+//                if let firstRow = rows.first {
+//                    print("firstRow is")
+//                    print(firstRow["elements"])
+//                    //Unwrap and cast `firstRow["elements"]`.
+//                    if let elements = firstRow["elements"] as? [[String: Any]] {
+//                        //The value for "duration" is a Dictionary, you need to cast it again.
+//                        if let duration = elements.first?["duration"] as? [String: Any] {
+//                            print(duration["text"] as? String)
+//                            print(duration["value"] as? Int)
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
     //MARK: - PRINT
     
     func printErro(_ error: Error){

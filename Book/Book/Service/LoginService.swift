@@ -70,13 +70,13 @@ class LoginService{
                 AlertaUtil().showMensagem(titulo: msgErro, mensagem: "\(mensagem)", view: view)
             }else{
                 
-                let token = App().mountToken(dados: data as? [String : Any]);
+                let returnToken = App().mountToken(dados: data as? [String : Any]);
                 
                 let TelaHome = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idHome) as? HomeViewController
                 view.navigationController?.pushViewController(TelaHome ?? view, animated: true)
                 view.dismiss(animated: true, completion: nil)
-                
-                App().printSucesso(token ?? "Token convet error")
+                token = returnToken ?? ""
+                App().printSucesso(returnToken ?? "Token convet error")
             }
         } else {
             AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgErroInesperado, view: view)

@@ -8,7 +8,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //LivroService().getAll(page: "1", tamMax: "3", view: self)
+        LivroService().getAll(page: "1", tamMax: "3", view: self)
         collectionViewLendo.dataSource = self;
         
     }

@@ -1,5 +1,7 @@
 //-- TEMP --\\
 
-let token = "574F1D7C-63F6-4760-AE74-979A1B1BB482";
+var token = "E83D7F79-925C-4697-B64D-43328D0E62ED";
+
+var livrosData: [Livro]? = [];
 
 

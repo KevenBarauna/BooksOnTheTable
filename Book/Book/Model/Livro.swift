@@ -18,3 +18,7 @@ struct LivroApi: Codable{
     let status: String
     let genre: String
 }
+
+struct ListLivroApi: Codable{
+    let books:[LivroApi]?
+}

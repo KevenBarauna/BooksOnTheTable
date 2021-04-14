@@ -32,6 +32,8 @@ class LivroService{
             "Content-Type": "application/json",
             "Authorization": "Bearer \(token)"
             ]
+        
+        print("Headers \(headers)")
 
         HttpService().get("/books?page=\(page)&per=\(tamMax)", headers) { (add, data) in
             self.handleGetAll(add, data, view);
@@ -73,7 +75,8 @@ class LivroService{
                 AlertaUtil().showMensagem(titulo: msgErro, mensagem: "\(mensagem)", view: view)
             }else{
                 let convet = App().mountBookList(dados: data as? [String : Any])
-                print(data)
+                
+                livrosData = convet
                // App().printSucesso(data as! String)
             }
         } else {
