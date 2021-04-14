@@ -41,6 +41,8 @@
 		C3D1BF602624DE8D00D32555 /* CadastrarLivroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF5F2624DE8D00D32555 /* CadastrarLivroViewController.swift */; };
 		C3D1BF652624ED0600D32555 /* LivroService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF642624ED0600D32555 /* LivroService.swift */; };
 		C3D1BF6A2624EDE200D32555 /* Livro.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF692624EDE200D32555 /* Livro.swift */; };
+		C3D1BF702626340A00D32555 /* LivrosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D1BF6F2626340900D32555 /* LivrosCollectionViewCell.swift */; };
+		C3D1BF822627396700D32555 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D1BF812627396700D32555 /* book.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,8 @@
 		C3D1BF5F2624DE8D00D32555 /* CadastrarLivroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastrarLivroViewController.swift; sourceTree = "<group>"; };
 		C3D1BF642624ED0600D32555 /* LivroService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivroService.swift; sourceTree = "<group>"; };
 		C3D1BF692624EDE200D32555 /* Livro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Livro.swift; sourceTree = "<group>"; };
+		C3D1BF6F2626340900D32555 /* LivrosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivrosCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3D1BF812627396700D32555 /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
 		CB8890150770BC00E34A25FC /* Pods_BookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E653EA0582B0AFD6600AF475 /* Pods_Book_BookUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Book_BookUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -223,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				C38AC578261404FE00F0B230 /* logo.png */,
+				C3D1BF812627396700D32555 /* book.png */,
 				C38AC579261404FE00F0B230 /* senha.png */,
 				C38AC57A261404FE00F0B230 /* email.png */,
 				C38AC57B261404FE00F0B230 /* apagar.png */,
@@ -236,6 +241,7 @@
 		C38AC58C2614CEB900F0B230 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C3D1BF6E262633D700D32555 /* Home */,
 				C38AC5AA2614EB9A00F0B230 /* LoginViewController.swift */,
 				C3D1BEFF2619402500D32555 /* RegistroViewController.swift */,
 				C3D1BF042619497200D32555 /* DetalheViewController.swift */,
@@ -283,6 +289,14 @@
 				C3D1BF692624EDE200D32555 /* Livro.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C3D1BF6E262633D700D32555 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C3D1BF6F2626340900D32555 /* LivrosCollectionViewCell.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,6 +415,7 @@
 				C38AC585261404FE00F0B230 /* usuario.png in Resources */,
 				C38AC584261404FE00F0B230 /* editar.png in Resources */,
 				C38AC5492613FD9D00F0B230 /* Main.storyboard in Resources */,
+				C3D1BF822627396700D32555 /* book.png in Resources */,
 				C38AC582261404FE00F0B230 /* apagar.png in Resources */,
 				C38AC581261404FE00F0B230 /* email.png in Resources */,
 			);
@@ -545,6 +560,7 @@
 				C3D1BF602624DE8D00D32555 /* CadastrarLivroViewController.swift in Sources */,
 				C3D1BF002619402500D32555 /* RegistroViewController.swift in Sources */,
 				C3D1BF1E261BA31000D32555 /* Usuario.swift in Sources */,
+				C3D1BF702626340A00D32555 /* LivrosCollectionViewCell.swift in Sources */,
 				C3D1BF10261B6FE900D32555 /* Contants.swift in Sources */,
 				C38AC5422613FD9D00F0B230 /* AppDelegate.swift in Sources */,
 				C38AC5442613FD9D00F0B230 /* SceneDelegate.swift in Sources */,

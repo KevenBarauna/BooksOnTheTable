@@ -10,6 +10,7 @@ let idRegistrar = "RegistroViewController";
 let idHome = "HomeViewController";
 let idDetalhe = "DetalheViewController";
 let idCadastrarLivro = "CadastrarLivroViewController";
+let idCelulaLivroLendo = "CelulaLivroLendo";
 
 // MENSAGEM
 let msgOps = "Ops...";
