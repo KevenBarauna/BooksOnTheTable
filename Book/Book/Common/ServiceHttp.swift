@@ -6,10 +6,16 @@ import Alamofire
 
 class HttpService{
     
+    let alert = Alert();
+    
     // MARK - POST
     
-    func post(_ params:Dictionary<String, Any>, _ url: String, _ headers: HTTPHeaders ,completion:@escaping(_ add:Bool, _ data:Any) -> Void){
-        guard let url = URL(string: apiRota + url) else {return}
+    func post(_ params:Dictionary<String, Any>, _ url: String, _ headers: HTTPHeaders ,completion:@escaping(_ sucess:Bool, _ data:Any) -> Void){
+        
+        guard let url = URL(string: apiRota + url) else {
+            alert.showDebug("Erro ao converter url");
+            return
+        }
         
         Alamofire.request(url, method: .post, parameters: params,encoding: JSONEncoding.default, headers: headers).responseJSON {
             resData in
@@ -20,7 +26,7 @@ class HttpService{
                     completion(true, json!)
                     break
                 }catch{
-                    completion(false,"Erro converter Json")
+                    completion(false, "Erro converter Json")
                     break
                 }
             case .failure( _):
@@ -32,9 +38,13 @@ class HttpService{
     
     //MARK: - GET
     
-    func get(_ url: String, _ headers: HTTPHeaders, completion:@escaping(_ add:Bool, _ data:Any) -> Void) {
+    func get(_ url: String, _ headers: HTTPHeaders, completion:@escaping(_ sucess:Bool, _ data:Any) -> Void) {
         
-        guard let url = URL(string: apiRota + url) else {return}
+        guard let url = URL(string: apiRota + url) else {
+            alert.showDebug("Erro ao converter url");
+            return
+        }
+        
         let request = Alamofire.request(url, headers: headers)
         request.responseJSON { (resData) in
             switch resData.result{

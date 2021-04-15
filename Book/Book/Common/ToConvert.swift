@@ -1,10 +1,8 @@
-import Foundation
+//CLASSE RESPONSAVEL PARA CONVERTER ITENS DA API
 
-class App {
+class ToConvert {
     
-    
-    func mountError(dados: [String:Any]?) -> ErroApi?{
-        //VERIFICA SE "DADOS" É UM ErroApi
+    func mountError(dados: [String:Any]?) -> ErrorApi?{
 
         guard let reason = dados?["reason"] else {
             return nil
@@ -14,12 +12,11 @@ class App {
             return nil
         }
         
-        return ErroApi(error: true, reason: reasonStr)
+        return ErrorApi(error: true, reason: reasonStr)
         
     }
     
-    func mountUsuario(dados: [String:Any]?) -> Usuario?{
-        //VERIFICA SE "DADOS" É UM Usuario
+    func mountUsuario(dados: [String:Any]?) -> User?{
         guard let nome = dados?["name"] else {
             debugPrint("* Não foi possível converter o nome - montarUsuario")
             return nil
@@ -36,7 +33,7 @@ class App {
             return nil
         }
         
-       return Usuario(id: nil, nome: nomeStr, email: emailStr, senha: "")
+       return User(id: nil, name: nomeStr, email: emailStr, password: "")
 
     }
     
@@ -55,7 +52,7 @@ class App {
 
     }
     
-    func mountBookList(dados: [String:Any]?) -> [Livro]?{
+    func mountBookList(dados: [String:Any]?) -> [BookModel]?{
         //VERIFICA SE TEM LISTA DE LIVRO
 //        debugPrint("------------------------------------------")
         guard let itens = dados?["items"] else {
@@ -65,7 +62,7 @@ class App {
         
         do{
             
-            var books: [Livro] = [];
+            var books: [BookModel] = [];
             
             if let rows = itens as? [[String: String]] {
                 
@@ -79,7 +76,7 @@ class App {
                         let status = r["status"]
                     else { return nil }
 
-                    let liv = Livro(id: id, titulo: titulo, autor: autor, genero: genero, status: status)
+                    let liv = BookModel(author: autor, id: id, title: titulo, status: status, genre: genero)
 //                    debugPrint("<< \(liv)")
                     books.append(liv);
                 }
@@ -87,7 +84,7 @@ class App {
             return books
                         
         }catch{
-            debugPrint("* Erro na conversão book - \(LocalizedError.self)")
+            debugPrint("* Erro na conversão book ")
             return nil
         }
                 

@@ -41,9 +41,9 @@ class RegistroViewController: UIViewController {
                 let senhaUsuario = senhaTxt?.text
             else { return }
             
-            let usuario = Usuario(id: nil, nome: nomeUsuario, email: emailUsuario, senha: senhaUsuario);
+            let usuario = User(id: nil, name: nomeUsuario, email: emailUsuario, password: senhaUsuario);
             
-            LoginService().registrar(usuario: usuario, view: self);
+            UserService().registrar(usuario: usuario, view: self);
 
         }
     }
@@ -81,23 +81,23 @@ class RegistroViewController: UIViewController {
     
     func validacao(nome: UITextField?, email: UITextField?, senha: UITextField?, confSenha: UITextField?) -> Bool{
         if(nome?.text?.isEmpty == true) {
-            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgInformeNome, view: self)
+            Alert().showMensagem(titulo: msgErro, mensagem: msgInformeNome, view: self)
             return false
         }
         else if(email?.text?.isEmpty == true) {
-            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgInformeEmail, view: self)
+            Alert().showMensagem(titulo: msgErro, mensagem: msgInformeEmail, view: self)
             return false
         }
         else if(senha?.text?.isEmpty == true) {
-            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgInformeSenha, view: self)
+            Alert().showMensagem(titulo: msgErro, mensagem: msgInformeSenha, view: self)
             return false
         }
         else if(confSenha?.text?.isEmpty == true) {
-            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgInformeConfSenha, view: self)
+            Alert().showMensagem(titulo: msgErro, mensagem: msgInformeConfSenha, view: self)
             return false
         }
         else if(senhaConfirmeTxt?.text != senhaTxt?.text) {
-            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgSenhasDif, view: self)
+            Alert().showMensagem(titulo: msgErro, mensagem: msgSenhasDif, view: self)
             return false
         }
         return true;

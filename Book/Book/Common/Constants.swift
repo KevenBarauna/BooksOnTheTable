@@ -1,8 +1,7 @@
 // -- TODAS AS CONSTANTS DO PROJETO --\\
 
 //API
-let apiRota = "http://127.0.0.1:8080"//http://localhost:3000"
-//let headers = ["Content-Type":"application/json"]
+let apiRota = "http://127.0.0.1:8080"
 
 //Identifier
 let idLogin = "LoginViewController";

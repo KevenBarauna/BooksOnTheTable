@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
             guard let usuarioEmail = usuarioTxt?.text else {return}
             guard let usuarioSenha = senhaTxt?.text else {return}
 
-        LoginService().login(email: usuarioEmail, senha: usuarioSenha, view: self);
+        UserService().login(usuarioEmail, usuarioSenha, view: self);
             
         }
     }
@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func esqueceuSenha() {
         //TO DO
-        AlertaUtil().showMensagem(titulo: msgOps , mensagem: msgDesenvolvimento, view: self)
+        Alert().showMensagem(titulo: msgOps , mensagem: msgDesenvolvimento, view: self)
     }
     
     @IBAction func registrar() {
@@ -78,11 +78,11 @@ class LoginViewController: UIViewController {
     
     func valicadao(usuario: UITextField?, senha: UITextField?) -> Bool {
         if(usuario?.text?.isEmpty == true) {
-            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgInformeEmail, view: self)
+            Alert().showMensagem(titulo: msgErro, mensagem: msgInformeEmail, view: self)
             return false
         }
         else if(senha?.text?.isEmpty == true) {
-            AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgInformeSenha, view: self)
+            Alert().showMensagem(titulo: msgErro, mensagem: msgInformeSenha, view: self)
             return false
         }
         return true;

@@ -1,10 +1,10 @@
 import  Foundation
 
-struct Usuario: Codable {
+struct User: Codable {
         
     let id: String?;
-    let nome: String;
+    let name: String;
     let email: String;
-    let senha: String;
+    let password: String;
     
 }

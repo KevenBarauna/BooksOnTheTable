@@ -45,8 +45,8 @@ class CadastrarLivroViewController: UIViewController {
                 let status = txtStatus?.text
             else { return }
 
-            let livro = Livro(id: nil, titulo: titulo, autor: autor, genero: genero, status: status)
-            LivroService().cadastrar(livro: livro, view: self)
+            let livro = BookModel(author: autor, id: "", title: titulo, status: status, genre: genero)
+            BookService().register(livro, view: self)
         }
     }
     
@@ -100,7 +100,7 @@ class CadastrarLivroViewController: UIViewController {
         }
         
         if(mensagem != ""){
-            AlertaUtil().showMensagem(titulo: msgErro, mensagem: mensagem, view: self)
+            Alert().showMensagem(titulo: msgErro, mensagem: mensagem, view: self)
             return false
         }
       
