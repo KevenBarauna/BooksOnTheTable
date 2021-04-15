@@ -50,6 +50,12 @@ class CadastrarLivroViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func voltar() {
+        navigationController?.popViewController(animated: true)
+        
+    }
+    
     //MARK: - Func
     
     @objc func subirTeclado(){

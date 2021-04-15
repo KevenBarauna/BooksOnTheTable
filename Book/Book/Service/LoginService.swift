@@ -70,13 +70,23 @@ class LoginService{
                 AlertaUtil().showMensagem(titulo: msgErro, mensagem: "\(mensagem)", view: view)
             }else{
                 
-                let returnToken = App().mountToken(dados: data as? [String : Any]);
+                let dispatch = DispatchQueue.init(label: "Serial")
                 
+                dispatch.async {
+                    let returnToken = App().mountToken(dados: data as? [String : Any]);
+                    
+                    token = returnToken ?? ""
+                }
+                     
+                dispatch.async {
+                    LivroService().getAll(page: "1", tamMax: "3")
+                }
+              
                 let TelaHome = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idHome) as? HomeViewController
                 view.navigationController?.pushViewController(TelaHome ?? view, animated: true)
                 view.dismiss(animated: true, completion: nil)
-                token = returnToken ?? ""
-                App().printSucesso(returnToken ?? "Token convet error")
+
+                //App().printSucesso(returnToken ?? "Token convet error")
             }
         } else {
             AlertaUtil().showMensagem(titulo: msgErro, mensagem: msgErroInesperado, view: view)
