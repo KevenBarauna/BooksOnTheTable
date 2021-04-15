@@ -19,7 +19,7 @@ class RegistroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addStyle();
+        self.addStyle();
         
         // SE TECLADO SUBIR
         NotificationCenter.default.addObserver(self, selector: #selector(subirTeclado), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -32,18 +32,18 @@ class RegistroViewController: UIViewController {
 
     @IBAction func registrar() {
 
-        let valido = self.validacao(nome: nomeTxt, email: emailTxt, senha: senhaTxt, confSenha: senhaConfirmeTxt);
+        let valid = self.validation(nomeTxt, emailTxt, senhaTxt, senhaConfirmeTxt);
         
-        if(valido){
+        if(valid){
             guard
-                let nomeUsuario = nomeTxt?.text,
-                let emailUsuario = emailTxt?.text,
-                let senhaUsuario = senhaTxt?.text
+                let name = nomeTxt?.text,
+                let email = emailTxt?.text,
+                let password = senhaTxt?.text
             else { return }
             
-            let usuario = User(id: nil, name: nomeUsuario, email: emailUsuario, password: senhaUsuario);
+            let usuario = User(id: nil, name: name, email: email, password: password);
             
-            UserService().registrar(usuario: usuario, view: self);
+            UserService().register(usuario: usuario, view: self);
 
         }
     }
@@ -79,27 +79,30 @@ class RegistroViewController: UIViewController {
         Styles().addStyleButton(viewButton: viewBtnVoltar)
     }
     
-    func validacao(nome: UITextField?, email: UITextField?, senha: UITextField?, confSenha: UITextField?) -> Bool{
-        if(nome?.text?.isEmpty == true) {
-            Alert().showMensagem(titulo: msgErro, mensagem: msgInformeNome, view: self)
+    func validation(_ name: UITextField?, _ email: UITextField?, _ password: UITextField?, _ confPassword: UITextField?) -> Bool{
+        let alert = Alert();
+        
+        if(name?.text?.isEmpty == true) {
+            alert.showMensagem(titulo: msgErro, mensagem: msgInformeNome, view: self)
             return false
         }
         else if(email?.text?.isEmpty == true) {
-            Alert().showMensagem(titulo: msgErro, mensagem: msgInformeEmail, view: self)
+            alert.showMensagem(titulo: msgErro, mensagem: msgInformeEmail, view: self)
             return false
         }
-        else if(senha?.text?.isEmpty == true) {
-            Alert().showMensagem(titulo: msgErro, mensagem: msgInformeSenha, view: self)
+        else if(password?.text?.isEmpty == true) {
+            alert.showMensagem(titulo: msgErro, mensagem: msgInformeSenha, view: self)
             return false
         }
-        else if(confSenha?.text?.isEmpty == true) {
-            Alert().showMensagem(titulo: msgErro, mensagem: msgInformeConfSenha, view: self)
+        else if(confPassword?.text?.isEmpty == true) {
+            alert.showMensagem(titulo: msgErro, mensagem: msgInformeConfSenha, view: self)
             return false
         }
-        else if(senhaConfirmeTxt?.text != senhaTxt?.text) {
-            Alert().showMensagem(titulo: msgErro, mensagem: msgSenhasDif, view: self)
+        else if(password?.text != confPassword?.text) {
+            alert.showMensagem(titulo: msgErro, mensagem: msgSenhasDif, view: self)
             return false
         }
+        
         return true;
     }
 }

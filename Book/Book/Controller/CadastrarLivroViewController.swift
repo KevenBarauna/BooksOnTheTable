@@ -1,10 +1,3 @@
-//
-//  CadastrarLivroViewController.swift
-//  Book
-//
-//  Created by administrator on 4/12/21.
-//
-
 import UIKit
 
 class CadastrarLivroViewController: UIViewController {
@@ -19,7 +12,6 @@ class CadastrarLivroViewController: UIViewController {
     
     // MARK - VARIAVEIS
     var tecladoIsOpen: Bool = false;
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +28,16 @@ class CadastrarLivroViewController: UIViewController {
     //MARK: - IBAction
 
     @IBAction func salvar() {
-        let valido = self.valicadao(titulo: tituloTxt, autor: autorTxt, genero: txtGenero, status: txtStatus);
-        if(valido){
+        let valid = self.validation(tituloTxt, autorTxt, txtGenero, txtStatus);
+        if(valid){
             guard
-                let titulo = tituloTxt?.text,
-                let autor = autorTxt?.text,
+                let title = tituloTxt?.text,
+                let author = autorTxt?.text,
                 let genero = txtGenero?.text,
                 let status = txtStatus?.text
             else { return }
 
-            let livro = BookModel(author: autor, id: "", title: titulo, status: status, genre: genero)
+            let livro = BookModel(author: author, id: "", title: title, status: status, genre: genero)
             BookService().register(livro, view: self)
         }
     }
@@ -53,7 +45,6 @@ class CadastrarLivroViewController: UIViewController {
     
     @IBAction func voltar() {
         navigationController?.popViewController(animated: true)
-        
     }
     
     //MARK: - Func
@@ -83,13 +74,13 @@ class CadastrarLivroViewController: UIViewController {
     }
     
     
-    func valicadao(titulo: UITextField?, autor: UITextField?, genero: UITextField?, status: UITextField?) -> Bool {
+    func validation(_ title: UITextField?, _ author: UITextField?, _ genero: UITextField?, _ status: UITextField?) -> Bool {
         var mensagem: String = "";
         
-        if(titulo?.text?.isEmpty == true) {
+        if(title?.text?.isEmpty == true) {
            mensagem = msgInformeTitulo
         }
-        else if(autor?.text?.isEmpty == true) {
+        else if(author?.text?.isEmpty == true) {
             mensagem = msgInformeAutor
         }
         else if(genero?.text?.isEmpty == true) {

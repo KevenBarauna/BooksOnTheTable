@@ -12,6 +12,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
         collectionViewLendo.dataSource = self;
     }
     
+    //WIP - Teste
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("WillApar");
@@ -23,7 +24,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
         
     }
     
-    
+    //WIP - Teste
     required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
         print("init")
@@ -32,7 +33,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
     }
     
     @IBAction func AddnewBook() {
-        print(booksData)
         let TelaCadastro = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idCadastrarLivro) as? CadastrarLivroViewController
         self.navigationController?.pushViewController(TelaCadastro ?? self, animated: true)
         self.dismiss(animated: true, completion: nil)
@@ -48,7 +48,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
         
         let celulaLivro = collectionView.dequeueReusableCell(withReuseIdentifier: "CelulaLivroLendo", for: indexPath) as! LivrosCollectionViewCell
         
-        print(" Livros global: \(booksData)")
+        debugPrint(" Livros global: \(String(describing: booksData))")
+        
         if (booksData != nil && booksData!.count > 0){
             celulaLivro.configure(title: booksData?[indexPath.row].title ?? " ")
         }else{

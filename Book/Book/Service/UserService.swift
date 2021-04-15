@@ -23,7 +23,7 @@ class UserService{
     }
     
     
-    func registrar(usuario: User, view: UIViewController){
+    func register(usuario: User, view: UIViewController){
         
         let body = [
             "name" : usuario.name,
@@ -36,14 +36,14 @@ class UserService{
         ]
         
         HttpService().post(body, "/users", headers) { (add, data) in
-            self.handleRegistrar(add, data, view)
+            self.handleRegister(add, data, view)
         }
     }
     
     
     //MARK: - HANDLE
     
-    func handleRegistrar(_ sucess: Bool, _ data: Any, _ view: UIViewController){
+    func handleRegister(_ sucess: Bool, _ data: Any, _ view: UIViewController){
         let convert = ToConvert();
         let alert = Alert();
         if sucess {

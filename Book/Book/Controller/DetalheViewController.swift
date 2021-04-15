@@ -26,12 +26,13 @@ class DetalheViewController: UIViewController {
     
     @IBAction func editar() {
         //TO DO
-        print("Editar")
+        Alert().showMensagem(titulo: "Editar" , mensagem: msgDesenvolvimento, view: self)
     }
     
     @IBAction func apagar() {
         //TO DO
-        print("Apagar")
+        Alert().showMensagem(titulo: "Apagar" , mensagem: msgDesenvolvimento, view: self)
+        
     }
     //MARK: - Func
     

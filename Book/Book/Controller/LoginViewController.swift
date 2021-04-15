@@ -1,40 +1,40 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     // MARK - IBOutlet
-        
-        @IBOutlet weak var usuarioTxt: UITextField?
-        @IBOutlet weak var senhaTxt: UITextField?
-        @IBOutlet weak var viewHeader: UIView?
-        @IBOutlet weak var viewBtnEntrar: UIView?
-        @IBOutlet weak var viewScroll: UIScrollView?
+    
+    @IBOutlet weak var usuarioTxt: UITextField?
+    @IBOutlet weak var senhaTxt: UITextField?
+    @IBOutlet weak var viewHeader: UIView?
+    @IBOutlet weak var viewBtnEntrar: UIView?
+    @IBOutlet weak var viewScroll: UIScrollView?
     
     // MARK - VARIAVEIS
-        var tecladoIsOpen: Bool = false;
+    var tecladoIsOpen: Bool = false;
     
-    // MARK: - FUNC PADRAO
+    // MARK: - OVERRIDE
     
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            addStyle();                       
-
-            // SE TECLADO SUBIR
-            NotificationCenter.default.addObserver(self, selector: #selector(subirTeclado), name: UIResponder.keyboardWillShowNotification, object: nil)
-            // SE TECLADO DESCER
-            NotificationCenter.default.addObserver(self, selector: #selector(descerTeclado), name: UIResponder.keyboardWillHideNotification, object: nil)
-            
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.addStyle();
+        
+        // SE TECLADO SUBIR
+        NotificationCenter.default.addObserver(self, selector: #selector(subirTeclado), name: UIResponder.keyboardWillShowNotification, object: nil)
+        // SE TECLADO DESCER
+        NotificationCenter.default.addObserver(self, selector: #selector(descerTeclado), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
     
     // MARK: - IBAction
     
     @IBAction func entrar() {
-        let valido = self.valicadao(usuario: usuarioTxt, senha: senhaTxt);
-        if(valido){
-            guard let usuarioEmail = usuarioTxt?.text else {return}
-            guard let usuarioSenha = senhaTxt?.text else {return}
-
-        UserService().login(usuarioEmail, usuarioSenha, view: self);
+        let valid = self.validation(usuarioTxt, senhaTxt);
+        if(valid){
+            guard let email = usuarioTxt?.text else {return}
+            guard let password = senhaTxt?.text else {return}
+            
+            UserService().login(email, password, view: self);
             
         }
     }
@@ -46,7 +46,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registrar() {
-        
         let TelaRegistrar = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idRegistrar) as? RegistroViewController
         self.navigationController?.pushViewController(TelaRegistrar ?? self, animated: true)
         
@@ -60,7 +59,7 @@ class LoginViewController: UIViewController {
             tecladoIsOpen = true;
         }
     }
-
+    
     @objc func descerTeclado(){
         if(tecladoIsOpen){
             self.viewScroll?.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height - 200);
@@ -76,13 +75,15 @@ class LoginViewController: UIViewController {
         style.addStyleButton(viewButton: viewBtnEntrar);
     }
     
-    func valicadao(usuario: UITextField?, senha: UITextField?) -> Bool {
-        if(usuario?.text?.isEmpty == true) {
-            Alert().showMensagem(titulo: msgErro, mensagem: msgInformeEmail, view: self)
+    func validation(_ email: UITextField?, _ password: UITextField?) -> Bool {
+        let alert = Alert();
+        
+        if(email?.text?.isEmpty == true) {
+            alert.showMensagem(titulo: msgErro, mensagem: msgInformeEmail, view: self)
             return false
         }
-        else if(senha?.text?.isEmpty == true) {
-            Alert().showMensagem(titulo: msgErro, mensagem: msgInformeSenha, view: self)
+        else if(password?.text?.isEmpty == true) {
+            alert.showMensagem(titulo: msgErro, mensagem: msgInformeSenha, view: self)
             return false
         }
         return true;

@@ -54,14 +54,12 @@ class ToConvert {
     
     func mountBookList(dados: [String:Any]?) -> [BookModel]?{
         //VERIFICA SE TEM LISTA DE LIVRO
-//        debugPrint("------------------------------------------")
         guard let itens = dados?["items"] else {
             debugPrint("* Não foi possível converter o itens - mountBookList");
             return nil
         }
         
-        do{
-            
+
             var books: [BookModel] = [];
             
             if let rows = itens as? [[String: String]] {
@@ -77,30 +75,11 @@ class ToConvert {
                     else { return nil }
 
                     let liv = BookModel(author: autor, id: id, title: titulo, status: status, genre: genero)
-//                    debugPrint("<< \(liv)")
                     books.append(liv);
                 }
             }
             return books
-                        
-        }catch{
-            debugPrint("* Erro na conversão book ")
-            return nil
-        }
                 
     }
     
-    //MARK: - PRINT
-    
-    func printErro(_ error: Error){
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        print("Error Http Serive: \(error)")
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    }
-    func printSucesso(_ sucesso: String){
-        print("##############################")
-        print("Response data string: \(sucesso)")
-        print("##############################")
-        
-    }
 }

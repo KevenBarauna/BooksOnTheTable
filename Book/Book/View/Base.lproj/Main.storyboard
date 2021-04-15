@@ -23,7 +23,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zfc-no-U4M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-894" y="121"/>
+            <point key="canvasLocation" x="126" y="-67"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -72,7 +72,7 @@
                                                 <rect key="frame" x="77" y="418" width="260" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIO-h2-Nf0">
                                                 <rect key="frame" x="225" y="466" width="112" height="27"/>
@@ -147,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76.811594202898561" y="120.53571428571428"/>
+            <point key="canvasLocation" x="1097" y="-67"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="uVF-2t-K7c">
@@ -260,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sr5-IJ-Gny" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57.971014492753625" y="775.44642857142856"/>
+            <point key="canvasLocation" x="126" y="587"/>
         </scene>
         <!--Cadastrar Livro View Controller-->
         <scene sceneID="b5y-Cb-bHZ">
@@ -393,7 +393,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DeX-96-JMS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957.97101449275374" y="774.77678571428567"/>
+            <point key="canvasLocation" x="1097" y="587"/>
         </scene>
         <!--Registro View Controller-->
         <scene sceneID="Ood-f8-xcb">
@@ -442,7 +442,7 @@
                                                 <rect key="frame" x="82" y="461" width="260" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  FullName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Ez-jS-SHM">
                                                 <rect key="frame" x="82" y="334" width="260" height="40"/>
@@ -454,7 +454,7 @@
                                                 <rect key="frame" x="82" y="523" width="260" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8G-Lz-Vd4" userLabel="View btn entrar">
                                                 <rect key="frame" x="82" y="680" width="250" height="48"/>
@@ -513,7 +513,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEV-xH-Eh8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863.768115942029" y="120.53571428571428"/>
+            <point key="canvasLocation" x="1884" y="-67"/>
         </scene>
         <!--Detalhe View Controller-->
         <scene sceneID="2Cy-Oe-MRx">
@@ -664,7 +664,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IXa-f7-FnC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1637.68115942029" y="120.53571428571428"/>
+            <point key="canvasLocation" x="1884" y="587"/>
         </scene>
     </scenes>
     <resources>

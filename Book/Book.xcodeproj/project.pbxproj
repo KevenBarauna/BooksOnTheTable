@@ -245,7 +245,6 @@
 				C38AC5AA2614EB9A00F0B230 /* LoginViewController.swift */,
 				C3D1BEFF2619402500D32555 /* RegistroViewController.swift */,
 				C3D1BF042619497200D32555 /* DetalheViewController.swift */,
-				C3D1BF382620D39100D32555 /* HomeViewController.swift */,
 				C3D1BF5F2624DE8D00D32555 /* CadastrarLivroViewController.swift */,
 			);
 			path = Controller;
@@ -281,6 +280,7 @@
 		C3D1BF6E262633D700D32555 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C3D1BF382620D39100D32555 /* HomeViewController.swift */,
 				C3D1BF6F2626340900D32555 /* LivrosCollectionViewCell.swift */,
 			);
 			path = Home;
