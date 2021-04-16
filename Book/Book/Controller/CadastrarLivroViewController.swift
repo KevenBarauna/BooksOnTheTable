@@ -13,10 +13,12 @@ class CadastrarLivroViewController: UIViewController {
     
     // MARK - VARIAVEIS
     var tecladoIsOpen: Bool = false;
+    var isEdit: Bool = false;
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.style();
+        self.addOrEdit();
         
         // SE TECLADO SUBIR
         NotificationCenter.default.addObserver(self, selector: #selector(subirTeclado), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -61,6 +63,19 @@ class CadastrarLivroViewController: UIViewController {
         if(tecladoIsOpen){
             self.viewScroll?.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height - 200);
             tecladoIsOpen = false;
+        }
+    }
+    
+    func addOrEdit(){
+        if(bookSelectData != nil){
+            //CARREGA CAMPOS
+            tituloTxt?.text = bookSelectData?.title
+            autorTxt?.text = bookSelectData?.author
+            txtGenero?.text = bookSelectData?.genre
+            txtStatus?.text = bookSelectData?.status
+            isEdit = true
+        }else{
+            isEdit = false
         }
     }
     

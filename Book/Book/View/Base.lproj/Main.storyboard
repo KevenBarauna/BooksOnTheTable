@@ -643,6 +643,9 @@
                                                         <state key="normal" title="MARCAR COMO LIDO">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="marcarLido" destination="jOu-P5-qDR" eventType="touchUpInside" id="CYq-YX-SPO"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.99885910749999995" green="0.62918454410000002" blue="0.40828239919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -657,6 +660,9 @@
                                                         <state key="normal" title="FAZER RESUMO">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="fazerResumo" destination="jOu-P5-qDR" eventType="touchUpInside" id="ANt-0P-Njs"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.99885910749999995" green="0.62918454410000002" blue="0.40828239919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -671,6 +677,9 @@
                                                         <state key="normal" title="Voltar">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="voltar:" destination="jOu-P5-qDR" eventType="touchUpInside" id="oL0-R3-axG"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.99885910749999995" green="0.62918454410000002" blue="0.40828239919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -695,6 +704,7 @@
                         <outlet property="tituloLivroLbl" destination="OGs-t7-wy2" id="aQ0-sZ-qZp"/>
                         <outlet property="viewBtnFazerResumo" destination="2AQ-YL-VpJ" id="mit-0m-JA9"/>
                         <outlet property="viewBtnMarcarLido" destination="yAs-yX-wV0" id="SZ2-wR-YAD"/>
+                        <outlet property="viewBtnVoltar" destination="Pgf-33-hKQ" id="hZd-uN-MNA"/>
                         <outlet property="viewContainer" destination="BNw-1B-UcG" id="IP0-r3-THB"/>
                         <outlet property="viewHeader" destination="wHy-qw-dXk" id="FFS-Vo-v9d"/>
                     </connections>

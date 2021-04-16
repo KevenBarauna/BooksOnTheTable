@@ -14,7 +14,7 @@ class DetalheViewController: UIViewController {
     @IBOutlet weak var btnMarcarLido: UIButton?
     @IBOutlet weak var btnFazerResumo: UIButton?
     @IBOutlet weak var viewContainer: UIView?
-    
+    @IBOutlet weak var viewBtnVoltar: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,10 @@ class DetalheViewController: UIViewController {
     
     @IBAction func editar() {
         //TO DO
-        Alert().showMensagem(titulo: "Editar" , mensagem: msgDesenvolvimento, view: self)
+        let TelaCadastrar = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idCadastrarLivro) as? CadastrarLivroViewController
+        self.navigationController?.pushViewController(TelaCadastrar ?? self, animated: true)
+        self.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func apagar() {
@@ -35,6 +38,22 @@ class DetalheViewController: UIViewController {
         Alert().showMensagem(titulo: "Apagar" , mensagem: msgDesenvolvimento, view: self)
         
     }
+    
+    @IBAction func voltar(_ sender: Any) {
+        bookSelectData = nil;
+    }
+    
+    
+    @IBAction func fazerResumo() {
+        //TO DO
+        Alert().showMensagem(titulo: "Fazer resumo" , mensagem: msgDesenvolvimento, view: self)
+    }
+    
+    @IBAction func marcarLido() {
+        //TO DO
+        Alert().showMensagem(titulo: "Marcar como lido" , mensagem: msgDesenvolvimento, view: self)
+    }
+    
     //MARK: - Func
     
     func configure(){
@@ -50,6 +69,7 @@ class DetalheViewController: UIViewController {
         Styles().addStyleHeader(view: viewHeader);
         Styles().addStyleButton(viewButton: viewBtnFazerResumo);
         Styles().addStyleButton(viewButton: viewBtnMarcarLido);
+        Styles().addStyleButton(viewButton: viewBtnVoltar);
         
         viewContainer?.layer.cornerRadius = 20
         viewContainer?.layer.borderWidth = 1
