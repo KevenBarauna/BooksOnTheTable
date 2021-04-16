@@ -41,6 +41,7 @@ class DetalheViewController: UIViewController {
     
     @IBAction func voltar(_ sender: Any) {
         bookSelectData = nil;
+        navigationController?.popViewController(animated: true)
     }
     
     

@@ -14,6 +14,7 @@ class CadastrarLivroViewController: UIViewController {
     // MARK - VARIAVEIS
     var tecladoIsOpen: Bool = false;
     var isEdit: Bool = false;
+    var idbook: String = "";
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +41,17 @@ class CadastrarLivroViewController: UIViewController {
                 let status = txtStatus?.text
             else { return }
 
-            let livro = BookModel(author: author, id: "", title: title, status: status, genre: genero)
-            BookService().register(livro, view: self)
+            let livro = BookModel(author: author, id: idbook, title: title, status: status, genre: genero)
+            
+            bookSelectData = nil;
+            
+            if(isEdit){
+                BookService().edit(livro, view: self)
+            }else{
+                BookService().register(livro, view: self)
+                
+            }
+           
         }
     }
     
@@ -69,6 +79,7 @@ class CadastrarLivroViewController: UIViewController {
     func addOrEdit(){
         if(bookSelectData != nil){
             //CARREGA CAMPOS
+            idbook = bookSelectData?.id ?? ""
             tituloTxt?.text = bookSelectData?.title
             autorTxt?.text = bookSelectData?.author
             txtGenero?.text = bookSelectData?.genre

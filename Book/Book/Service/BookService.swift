@@ -25,6 +25,30 @@ class BookService{
         }
     }
     
+    func edit(_ book: BookModel, view: UIViewController){
+        
+        print(book)
+        
+        let body = [
+            "title" : book.title,
+            "author" : book.author,
+            "genre" : book.genre,
+            "status" : book.status
+        ];
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "Authorization": "Bearer \(tokenData)"
+        ]
+        
+        HttpService().put(body, "/books/\(book.id)", headers) { (add, data) in
+            print(add)
+            print(data)
+            //self.handleCadastrar(add, data, view);
+        }
+        
+    }
+    
     
     func getAll(page: String = "1", tamMax: String = "3", view: UIViewController? = nil){
         
