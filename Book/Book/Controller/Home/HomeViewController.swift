@@ -8,29 +8,17 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        BookService().getAll(page: "1", tamMax: "3", view: self)
+        BookService().getAll(view: self)
         collectionViewLendo.dataSource = self;
     }
     
-    //WIP - Teste
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("WillApar");
-        let dispatch = DispatchQueue.init(label: "Will")
-        dispatch.async {
-            BookService().getAll(page: "1", tamMax: "3", view: self)
-        }
-        collectionViewLendo.dataSource = self;
-        
+        collectionViewLendo.reloadData()
+        BookService().getAll(view: self)
     }
     
-    //WIP - Teste
-    required init?(coder aDecoder: NSCoder) {
-            super.init(coder: aDecoder)
-        print("init")
-        BookService().getAll(page: "1", tamMax: "3", view: self)
-        
-    }
     
     @IBAction func AddnewBook() {
         let TelaCadastro = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idCadastrarLivro) as? CadastrarLivroViewController
@@ -41,17 +29,28 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
     //MAR: - CollectioView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        let count = booksData?.count
+        if(count != nil && count! >= 3 ){
+            return 3
+        }
+        return count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let celulaLivro = collectionView.dequeueReusableCell(withReuseIdentifier: "CelulaLivroLendo", for: indexPath) as! LivrosCollectionViewCell
-        
-        debugPrint(" Livros global: \(String(describing: booksData))")
-        
+                
         if (booksData != nil && booksData!.count > 0){
-            celulaLivro.configure(title: booksData?[indexPath.row].title ?? " ")
+           
+            var text = "x"
+            if let title = booksData?[indexPath.row].title {
+                text = title
+            }
+            else if let author = booksData?[indexPath.row].author{
+                text = author
+            }
+            
+            celulaLivro.configure(title: text)
         }else{
             celulaLivro.configure(title: "")
         }

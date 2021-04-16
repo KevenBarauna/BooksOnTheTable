@@ -26,7 +26,7 @@ class BookService{
     }
     
     
-    func getAll(page: String = "10", tamMax: String = "3", view: UIViewController? = nil){
+    func getAll(page: String = "1", tamMax: String = "3", view: UIViewController? = nil){
         
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
