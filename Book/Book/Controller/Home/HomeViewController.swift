@@ -4,10 +4,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
     
       
     @IBOutlet weak var collectionViewLendo: UICollectionView!
+    @IBOutlet weak var viewAddBook: UIView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.styles();
         BookService().getAll(view: self)
         collectionViewLendo.dataSource = self;
     }
@@ -58,6 +60,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
         return celulaLivro;
     }
     
+    func styles(){
+        viewAddBook.layer.cornerRadius = viewAddBook.frame.size.width/2
+        viewAddBook.clipsToBounds = true
+        
+        viewAddBook?.layer.borderWidth = 7
+        viewAddBook?.layer.borderColor = UIColor.systemGray5.cgColor
+        
+    }
 
 
 }

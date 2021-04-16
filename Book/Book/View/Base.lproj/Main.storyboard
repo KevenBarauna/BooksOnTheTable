@@ -229,13 +229,6 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.99885910749999995" green="0.62918454410000002" blue="0.40828239919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKW-Ck-Ucx">
-                                                <rect key="frame" x="201" y="793" width="25" height="24"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <connections>
-                                                    <action selector="AddnewBook" destination="j2c-sJ-Y36" eventType="touchUpInside" id="oGy-dR-knc"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PARA LER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0Q-zz-EKC">
                                                 <rect key="frame" x="18" y="369" width="97" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -243,6 +236,24 @@
                                                 <color key="textColor" red="0.99885910749999995" green="0.62918454410000002" blue="0.40828239919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wei-wl-i2D">
+                                                <rect key="frame" x="178" y="765" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKW-Ck-Ucx">
+                                                        <rect key="frame" x="8" y="8" width="54" height="54"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                                        <state key="normal" title="+">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="AddnewBook" destination="j2c-sJ-Y36" eventType="touchUpInside" id="oGy-dR-knc"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.99885910749999995" green="0.62918454410000002" blue="0.40828239919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
@@ -256,11 +267,12 @@
                     </view>
                     <connections>
                         <outlet property="collectionViewLendo" destination="oif-xm-S5o" id="Lih-iQ-QQU"/>
+                        <outlet property="viewAddBook" destination="Wei-wl-i2D" id="XfD-Mj-ced"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sr5-IJ-Gny" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="126" y="587"/>
+            <point key="canvasLocation" x="124.6376811594203" y="585.9375"/>
         </scene>
         <!--Cadastrar Livro View Controller-->
         <scene sceneID="b5y-Cb-bHZ">
@@ -345,7 +357,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bE4-w2-EOF" userLabel="View Salvar">
-                                                <rect key="frame" x="82" y="731" width="250" height="48"/>
+                                                <rect key="frame" x="82" y="700" width="250" height="48"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g40-Wg-fEw">
@@ -362,14 +374,24 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.99885910749999995" green="0.62918454410000002" blue="0.40828239919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpF-QY-nX7">
-                                                <rect key="frame" x="187" y="800" width="41" height="30"/>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kNH-0l-kOh">
+                                                <rect key="frame" x="82" y="760" width="250" height="48"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Voltar"/>
-                                                <connections>
-                                                    <action selector="voltar" destination="2cs-Rt-1oR" eventType="touchUpInside" id="5uq-rm-aDY"/>
-                                                </connections>
-                                            </button>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpF-QY-nX7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="250" height="48"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Voltar">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="voltar" destination="2cs-Rt-1oR" eventType="touchUpInside" id="5uq-rm-aDY"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.99885910749999995" green="0.62918454410000002" blue="0.40828239919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
@@ -386,6 +408,7 @@
                         <outlet property="tituloTxt" destination="JCk-9k-K0D" id="akW-jb-YjZ"/>
                         <outlet property="txtGenero" destination="UNk-tW-k0E" id="zKj-KW-Fx3"/>
                         <outlet property="txtStatus" destination="qfE-rr-vHa" id="cN5-k4-q11"/>
+                        <outlet property="viewBtnVoltar" destination="kNH-0l-kOh" id="JfC-dA-KV7"/>
                         <outlet property="viewHeader" destination="4kr-4R-XWZ" id="yii-Mz-brw"/>
                         <outlet property="viewSalvar" destination="bE4-w2-EOF" id="VdH-5D-3hZ"/>
                         <outlet property="viewScroll" destination="mZ1-dJ-iUI" id="hvA-pW-nkr"/>
@@ -393,7 +416,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DeX-96-JMS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1097" y="587"/>
+            <point key="canvasLocation" x="1095.6521739130435" y="585.9375"/>
         </scene>
         <!--Registro View Controller-->
         <scene sceneID="Ood-f8-xcb">

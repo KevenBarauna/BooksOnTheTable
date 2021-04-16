@@ -9,6 +9,7 @@ class CadastrarLivroViewController: UIViewController {
     @IBOutlet weak var autorTxt: UITextField?
     @IBOutlet weak var txtGenero: UITextField?
     @IBOutlet weak var txtStatus: UITextField?
+    @IBOutlet weak var viewBtnVoltar: UIView?
     
     // MARK - VARIAVEIS
     var tecladoIsOpen: Bool = false;
@@ -71,6 +72,7 @@ class CadastrarLivroViewController: UIViewController {
         style.addStyleTextField(campoTextField: txtStatus)
         style.addStyleHeader(view: viewHeader);
         style.addStyleButton(viewButton: viewSalvar);
+        style.addStyleButton(viewButton: viewBtnVoltar);
     }
     
     
