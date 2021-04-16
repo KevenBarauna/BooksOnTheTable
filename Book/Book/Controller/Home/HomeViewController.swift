@@ -1,10 +1,11 @@
 import UIKit
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
       
     @IBOutlet weak var collectionViewLendo: UICollectionView!
     @IBOutlet weak var viewAddBook: UIView!
+    @IBOutlet weak var barraPesquisa: UISearchBar!
     
 
     override func viewDidLoad() {
@@ -13,6 +14,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         BookService().getAll(view: self)
         collectionViewLendo.dataSource = self;
         collectionViewLendo.delegate = self;
+        barraPesquisa.delegate = self;
     }
     
 
@@ -45,7 +47,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 
         if (booksData != nil && booksData!.count > 0){
            
-            var text = "x"
+            var text = ""
             if let title = booksData?[indexPath.row].title {
                 text = title
             }
@@ -67,6 +69,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let TelaDetalhe = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idDetalhe) as? DetalheViewController
         self.navigationController?.pushViewController(TelaDetalhe ?? self, animated: true)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        debugPrint(searchText);
+        
     }
     
     func styles(){
