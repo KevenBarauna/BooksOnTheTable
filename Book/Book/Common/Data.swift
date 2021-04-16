@@ -4,4 +4,6 @@ var tokenData = "";
 
 var booksData: [BookModel]? = [];
 
+var bookSelectData: BookModel?;
+
 

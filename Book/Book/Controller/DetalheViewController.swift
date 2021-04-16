@@ -19,6 +19,7 @@ class DetalheViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addStyle();
+        configure();
 
     }
     
@@ -35,6 +36,15 @@ class DetalheViewController: UIViewController {
         
     }
     //MARK: - Func
+    
+    func configure(){
+        guard let bookShow = bookSelectData else {return}
+        
+        self.tituloLivroLbl?.text = bookShow.title;
+        self.autorLbl?.text = bookShow.author
+        self.statusLbl?.text = bookShow.status
+        
+    }
     
     func addStyle(){
         Styles().addStyleHeader(view: viewHeader);

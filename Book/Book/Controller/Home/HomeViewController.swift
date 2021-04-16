@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeViewController: UIViewController, UICollectionViewDataSource {
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
       
     @IBOutlet weak var collectionViewLendo: UICollectionView!
@@ -12,6 +12,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
         self.styles();
         BookService().getAll(view: self)
         collectionViewLendo.dataSource = self;
+        collectionViewLendo.delegate = self;
     }
     
 
@@ -58,6 +59,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
         }
 
         return celulaLivro;
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        bookSelectData = booksData?[indexPath.row];
+        
+        let TelaDetalhe = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idDetalhe) as? DetalheViewController
+        self.navigationController?.pushViewController(TelaDetalhe ?? self, animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func styles(){
