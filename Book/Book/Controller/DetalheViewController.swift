@@ -28,8 +28,10 @@ class DetalheViewController: UIViewController {
     @IBAction func editar() {
         //TO DO
         let TelaCadastrar = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: idCadastrarLivro) as? CadastrarLivroViewController
+        self.navigationController?.popViewController(animated: true)
         self.navigationController?.pushViewController(TelaCadastrar ?? self, animated: true)
         self.dismiss(animated: true, completion: nil)
+        
         
     }
     

@@ -42,9 +42,7 @@ class BookService{
         ]
         
         HttpService().put(body, "/books/\(book.id)", headers) { (add, data) in
-            print(add)
-            print(data)
-            //self.handleCadastrar(add, data, view);
+            self.handleEditar(add, data, view);
         }
         
     }
@@ -108,5 +106,28 @@ class BookService{
         }
     }
     
+    
+    func handleEditar(_ sucess: Bool, _ data: Any, _ view: UIViewController?){
+        let convert = ToConvert();
+        let alert = Alert();
+        if sucess {
+            let isError = convert.mountError(dados: data as? [String : Any]);
+            if(isError?.error == true){
+                guard let message = isError?.reason else {return}
+                if let telaView = view {
+                    alert.showMensagem(titulo: msgErro, mensagem: "\(message)", view: telaView)
+                }
+            }else{
+                if let telaView = view {
+                    alert.showMensagem(titulo: msgSucesso, mensagem: msgLivroEditado , view: telaView)
+                }
+            }
+        } else {
+            if let telaView = view {
+                alert.showMensagem(titulo: msgErro, mensagem: msgErroInesperado, view: telaView)
+                
+            }
+        }
+    }
     
 }

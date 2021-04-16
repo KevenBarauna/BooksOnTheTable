@@ -27,3 +27,4 @@ let msgInformeGenero = "Informe o gênero do livro";
 let msgInformeStatus = "Informe o status do livro";
 let msgSenhasDif = "As senhas estão diferentes";
 let msgUsuarioCriadoSucesso = "Usuário cadastrado com sucesso"
+let msgLivroEditado = "Livro editado com sucesso"
