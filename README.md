@@ -21,10 +21,10 @@ Primeiro projeto mobile para IOS, um sistema de cadastro e edição de livros, a
 	> Criar uma replica do layout proposto no storyboard. (Nessa parte do desenvolvimento, não se preocupar com responsividade ou com dropdown).
 	
 - Common.   :white_check_mark:
-	> Criar o arquivos genéricos que podem ser usado em todas as telas da aplicação, como criar Alerta, styles , constantes, entre outros.
+	> Criar o arquivos genéricos que podem ser usados em todas as telas da aplicação, como criar Alerta, styles , constantes, entre outros.
 	
-- Chamda API - **POST** e **GET**.   :white_check_mark:
-	> Criar o função genérica, para fazer um post na API e GET. Optei por usar o [Alamofire](https://github.com/Alamofire/Alamofire) (A cada necessidade ir implementando outros métodos como o **PUT** ou **DELETE**). as requisições estavam sendo feitas, porém a resposta estava sendo exibida somente no console.
+- Chamada API - **POST** e **GET**.   :white_check_mark:
+	> Criar a função genérica, para fazer um post e get na API. Optei por usar o [Alamofire](https://github.com/Alamofire/Alamofire) (A cada necessidade ir implementando outros métodos como o **PUT** ou **DELETE**). as requisições estavam sendo feitas, porém a resposta estava sendo exibida somente no console.
 	
 Depois de fazer o POST e GET tentei integrar as requisições com o sistema.
 
@@ -54,13 +54,18 @@ Como as telas estavam feitas, as rotas funcionando , tinha as duas funções pri
 - Separar livros por categoria  :x:
 	> Separar em: Lendo, para ler e lido.
 	
-- Ver detalhes do livro  :x:
+	- Pesquisar livros  :x:
+	> Não terminei por falta de tempo
+	
+- Ver detalhes do livro  :white_check_mark:
 	> Ao clicar no livro ser direcionado para outra tela com os detalhes do livro.
 	
-- Editar livro  :x:
+- Editar livro  :white_check_mark:
 	> Na tela de detalhes ter a opção de editar o livro
+	> Fiz na mesma tela de cadastrar livro, só que com os campos carregados.
+	>Para isso criei o  **PUT** pra chamar a API
 	
-Como as requisições sendo feita e todas as telas funcionando é hora de salvar dados locais para evitar chamar a API varias vezes.
+Como as requisições sendo feita e todas as telas funcionando é hora de salvar dados locais para evitar chamar a API várias vezes.
 
 - Salvar token local :x:
 	> Feature não iniciada
